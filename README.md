@@ -1,0 +1,2 @@
+# TradingApp
+Simple trading app

@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		813B68A82B99E14D000F3FE5 /* TradingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68A72B99E14D000F3FE5 /* TradingAppApp.swift */; };
-		813B68AA2B99E14D000F3FE5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68A92B99E14D000F3FE5 /* ContentView.swift */; };
-		813B68AC2B99E14E000F3FE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813B68AB2B99E14E000F3FE5 /* Assets.xcassets */; };
-		813B68AF2B99E14E000F3FE5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813B68AE2B99E14E000F3FE5 /* Preview Assets.xcassets */; };
 		813B68B92B99E14E000F3FE5 /* TradingAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68B82B99E14E000F3FE5 /* TradingAppTests.swift */; };
 		813B68C32B99E14E000F3FE5 /* TradingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68C22B99E14E000F3FE5 /* TradingAppUITests.swift */; };
 		813B68C52B99E14E000F3FE5 /* TradingAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68C42B99E14E000F3FE5 /* TradingAppUITestsLaunchTests.swift */; };
+		813B68DD2B99ED8F000F3FE5 /* TradingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68D82B99ED8F000F3FE5 /* TradingAppApp.swift */; };
+		813B68DE2B99ED8F000F3FE5 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68DC2B99ED8F000F3FE5 /* BookListView.swift */; };
+		813B68E12B99EE64000F3FE5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813B68E02B99EE64000F3FE5 /* Preview Assets.xcassets */; };
+		813B68E32B99EEAF000F3FE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813B68E22B99EEAF000F3FE5 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,15 +35,15 @@
 
 /* Begin PBXFileReference section */
 		813B68A42B99E14D000F3FE5 /* TradingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		813B68A72B99E14D000F3FE5 /* TradingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingAppApp.swift; sourceTree = "<group>"; };
-		813B68A92B99E14D000F3FE5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		813B68AB2B99E14E000F3FE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		813B68AE2B99E14E000F3FE5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		813B68B42B99E14E000F3FE5 /* TradingAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TradingAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		813B68B82B99E14E000F3FE5 /* TradingAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingAppTests.swift; sourceTree = "<group>"; };
 		813B68BE2B99E14E000F3FE5 /* TradingAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TradingAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		813B68C22B99E14E000F3FE5 /* TradingAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingAppUITests.swift; sourceTree = "<group>"; };
 		813B68C42B99E14E000F3FE5 /* TradingAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		813B68D82B99ED8F000F3FE5 /* TradingAppApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradingAppApp.swift; sourceTree = "<group>"; };
+		813B68DC2B99ED8F000F3FE5 /* BookListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
+		813B68E02B99EE64000F3FE5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		813B68E22B99EEAF000F3FE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,8 @@
 		813B689B2B99E14D000F3FE5 = {
 			isa = PBXGroup;
 			children = (
-				813B68A62B99E14D000F3FE5 /* TradingApp */,
+				813B68D62B99ED8F000F3FE5 /* TradingApp */,
+				813B68E22B99EEAF000F3FE5 /* Assets.xcassets */,
 				813B68B72B99E14E000F3FE5 /* TradingAppTests */,
 				813B68C12B99E14E000F3FE5 /* TradingAppUITests */,
 				813B68A52B99E14D000F3FE5 /* Products */,
@@ -89,25 +90,6 @@
 				813B68BE2B99E14E000F3FE5 /* TradingAppUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		813B68A62B99E14D000F3FE5 /* TradingApp */ = {
-			isa = PBXGroup;
-			children = (
-				813B68A72B99E14D000F3FE5 /* TradingAppApp.swift */,
-				813B68A92B99E14D000F3FE5 /* ContentView.swift */,
-				813B68AB2B99E14E000F3FE5 /* Assets.xcassets */,
-				813B68AD2B99E14E000F3FE5 /* Preview Content */,
-			);
-			path = TradingApp;
-			sourceTree = "<group>";
-		};
-		813B68AD2B99E14E000F3FE5 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				813B68AE2B99E14E000F3FE5 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		813B68B72B99E14E000F3FE5 /* TradingAppTests */ = {
@@ -125,6 +107,48 @@
 				813B68C42B99E14E000F3FE5 /* TradingAppUITestsLaunchTests.swift */,
 			);
 			path = TradingAppUITests;
+			sourceTree = "<group>";
+		};
+		813B68D62B99ED8F000F3FE5 /* TradingApp */ = {
+			isa = PBXGroup;
+			children = (
+				813B68D72B99ED8F000F3FE5 /* App */,
+				813B68DA2B99ED8F000F3FE5 /* BookList */,
+				813B68DF2B99EE64000F3FE5 /* Preview Content */,
+			);
+			path = TradingApp;
+			sourceTree = "<group>";
+		};
+		813B68D72B99ED8F000F3FE5 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				813B68D82B99ED8F000F3FE5 /* TradingAppApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		813B68DA2B99ED8F000F3FE5 /* BookList */ = {
+			isa = PBXGroup;
+			children = (
+				813B68DB2B99ED8F000F3FE5 /* UI */,
+			);
+			path = BookList;
+			sourceTree = "<group>";
+		};
+		813B68DB2B99ED8F000F3FE5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				813B68DC2B99ED8F000F3FE5 /* BookListView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		813B68DF2B99EE64000F3FE5 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				813B68E02B99EE64000F3FE5 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,8 +255,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				813B68AF2B99E14E000F3FE5 /* Preview Assets.xcassets in Resources */,
-				813B68AC2B99E14E000F3FE5 /* Assets.xcassets in Resources */,
+				813B68E32B99EEAF000F3FE5 /* Assets.xcassets in Resources */,
+				813B68E12B99EE64000F3FE5 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +281,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				813B68AA2B99E14D000F3FE5 /* ContentView.swift in Sources */,
-				813B68A82B99E14D000F3FE5 /* TradingAppApp.swift in Sources */,
+				813B68DD2B99ED8F000F3FE5 /* TradingAppApp.swift in Sources */,
+				813B68DE2B99ED8F000F3FE5 /* BookListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

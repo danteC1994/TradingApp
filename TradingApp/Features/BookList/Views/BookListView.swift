@@ -65,7 +65,7 @@ struct BookListView: View {
                 getBooksRequestable: .init(
                     coder: JsonCoder(),
                     endpoint: BookListEndpoint(queryItems: []),
-                    session: .init(configuration: .default)
+                    session: URLSession(configuration: .default)
                 )
             )
         )

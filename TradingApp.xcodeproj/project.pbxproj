@@ -29,6 +29,11 @@
 		813B69092B9C053C000F3FE5 /* EndpointGetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69082B9C053C000F3FE5 /* EndpointGetRequest.swift */; };
 		813B690B2B9C11AC000F3FE5 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B690A2B9C11AC000F3FE5 /* Decoder.swift */; };
 		813B690F2B9C141B000F3FE5 /* BookListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B690E2B9C141B000F3FE5 /* BookListRowView.swift */; };
+		813B69132B9C9A03000F3FE5 /* BookListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69122B9C9A03000F3FE5 /* BookListViewModel.swift */; };
+		813B69162B9CA951000F3FE5 /* SessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69152B9CA951000F3FE5 /* SessionMock.swift */; };
+		813B69182B9CA98A000F3FE5 /* CoderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69172B9CA98A000F3FE5 /* CoderMock.swift */; };
+		813B691A2B9CAD0D000F3FE5 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69192B9CAD0D000F3FE5 /* Session.swift */; };
+		813B691C2B9CAD2A000F3FE5 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B691B2B9CAD2A000F3FE5 /* URL+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +79,11 @@
 		813B69082B9C053C000F3FE5 /* EndpointGetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointGetRequest.swift; sourceTree = "<group>"; };
 		813B690A2B9C11AC000F3FE5 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
 		813B690E2B9C141B000F3FE5 /* BookListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRowView.swift; sourceTree = "<group>"; };
+		813B69122B9C9A03000F3FE5 /* BookListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewModel.swift; sourceTree = "<group>"; };
+		813B69152B9CA951000F3FE5 /* SessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMock.swift; sourceTree = "<group>"; };
+		813B69172B9CA98A000F3FE5 /* CoderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderMock.swift; sourceTree = "<group>"; };
+		813B69192B9CAD0D000F3FE5 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		813B691B2B9CAD2A000F3FE5 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +135,8 @@
 		813B68B72B99E14E000F3FE5 /* TradingAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				813B69142B9CA940000F3FE5 /* Networking */,
+				813B69102B9C99E0000F3FE5 /* Features */,
 				813B68B82B99E14E000F3FE5 /* TradingAppTests.swift */,
 			);
 			path = TradingAppTests;
@@ -229,6 +241,7 @@
 				813B68EF2B9BAC18000F3FE5 /* Endpoint.swift */,
 				813B69052B9BFB81000F3FE5 /* JsonCoder.swift */,
 				813B690A2B9C11AC000F3FE5 /* Decoder.swift */,
+				813B69192B9CAD0D000F3FE5 /* Session.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -256,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				813B68F32B9BDE66000F3FE5 /* Endpoint+Extensions.swift */,
+				813B691B2B9CAD2A000F3FE5 /* URL+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -266,6 +280,31 @@
 				813B69082B9C053C000F3FE5 /* EndpointGetRequest.swift */,
 			);
 			path = ServiceRequests;
+			sourceTree = "<group>";
+		};
+		813B69102B9C99E0000F3FE5 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				813B69112B9C99EC000F3FE5 /* BookList */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		813B69112B9C99EC000F3FE5 /* BookList */ = {
+			isa = PBXGroup;
+			children = (
+				813B69122B9C9A03000F3FE5 /* BookListViewModel.swift */,
+			);
+			path = BookList;
+			sourceTree = "<group>";
+		};
+		813B69142B9CA940000F3FE5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				813B69152B9CA951000F3FE5 /* SessionMock.swift */,
+				813B69172B9CA98A000F3FE5 /* CoderMock.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,9 +445,11 @@
 				813B69092B9C053C000F3FE5 /* EndpointGetRequest.swift in Sources */,
 				813B68F22B9BAC41000F3FE5 /* BaseURL.swift in Sources */,
 				813B69062B9BFB81000F3FE5 /* JsonCoder.swift in Sources */,
+				813B691A2B9CAD0D000F3FE5 /* Session.swift in Sources */,
 				813B68FF2B9BEC3E000F3FE5 /* BookListService.swift in Sources */,
 				813B68DE2B99ED8F000F3FE5 /* BookListView.swift in Sources */,
 				813B68EE2B9A5996000F3FE5 /* BitsoAPIURL.swift in Sources */,
+				813B691C2B9CAD2A000F3FE5 /* URL+Extensions.swift in Sources */,
 				813B68F72B9BE8BD000F3FE5 /* BookList.swift in Sources */,
 				813B68F02B9BAC18000F3FE5 /* Endpoint.swift in Sources */,
 				813B68FA2B9BE938000F3FE5 /* Book.swift in Sources */,
@@ -423,6 +464,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				813B68B92B99E14E000F3FE5 /* TradingAppTests.swift in Sources */,
+				813B69182B9CA98A000F3FE5 /* CoderMock.swift in Sources */,
+				813B69132B9C9A03000F3FE5 /* BookListViewModel.swift in Sources */,
+				813B69162B9CA951000F3FE5 /* SessionMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

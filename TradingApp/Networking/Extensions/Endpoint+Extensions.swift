@@ -20,6 +20,11 @@ extension Endpoint {
         var endpointUrlComponents = getEndpointUrlComponents()
         endpointUrlComponents.queryItems = queryItems
         
-        return endpointUrlComponents.url
+        guard let url = endpointUrlComponents.url else {
+            assertionFailure("Error while creating url for \(endpointUrlComponents.path)")
+            return nil
+        }
+        
+        return url
     }
 }

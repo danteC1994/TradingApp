@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct BookAPIError: Decodable {
+struct BookAPIError: Decodable, Equatable {
     let message: String
 }

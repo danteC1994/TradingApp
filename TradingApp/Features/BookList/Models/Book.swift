@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Book: Decodable, Identifiable {
+struct Book: Decodable, Identifiable, Equatable {
     var id: UUID {
         return UUID()
     }

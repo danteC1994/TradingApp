@@ -8,13 +8,13 @@
 import Foundation
 
 final class BookListViewModel: ObservableObject {
-    enum State {
+    enum State: Equatable {
         case idle(_ stateData: IdleStateData)
         case error
         case loading
     }
 
-    struct IdleStateData {
+    struct IdleStateData: Equatable {
         let bookList: BookList
     }
 
@@ -37,5 +37,4 @@ final class BookListViewModel: ObservableObject {
             self.state = .error
         }
     }
-
 }

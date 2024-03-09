@@ -14,7 +14,7 @@ struct BookListEndpoint: Endpoint {
     
     var queryItems: [URLQueryItem]
 
-    init(queryItems: [URLQueryItem]) {
+    init(queryItems: [URLQueryItem] = []) {
         self.queryItems = queryItems
     }
 }

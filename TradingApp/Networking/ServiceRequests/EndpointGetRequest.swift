@@ -10,20 +10,16 @@ import Foundation
 struct EndpointGetRequest<T> where T: Decodable {
     let decoder: Decoder
     let endpoint: Endpoint
-    let session: URLSession
+    let session: Session
 
-    init(coder: Decoder, endpoint: Endpoint, session: URLSession) {
-        self.decoder = JsonCoder()
+    init(coder: Decoder, endpoint: Endpoint, session: Session) {
+        self.decoder = coder
         self.endpoint = endpoint
-        self.session =  .init(configuration: .default)
+        self.session = session
     }
 
     func asyncGetrequest() async -> Result<T, APIError> {
-        guard let url = endpoint.getUrlRequest()
-        else {
-            assertionFailure("Error while creating url for \(endpoint.endpointPath)")
-            return .failure(.url)
-        }
+        guard let url = endpoint.getUrlRequest() else { return .failure(.url) }
         
         let data: Data
         do {
@@ -34,7 +30,6 @@ struct EndpointGetRequest<T> where T: Decodable {
         }
 
         guard let response = decoder.decode(data: data, dataType: T.self) else {
-            assertionFailure("Error while decoding \(endpoint.endpointPath)")
             return .failure(.decoding)
         }
         

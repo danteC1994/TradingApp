@@ -17,6 +17,7 @@ struct JsonCoder: Decoder {
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             return try decoder.decode(T.self, from: data)
         } catch {
+            assertionFailure("Error while decoding \(T.self)")
             return nil
         }
     }

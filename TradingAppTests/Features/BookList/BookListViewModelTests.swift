@@ -60,7 +60,7 @@ final class BookListViewModelTests: XCTestCase {
     func testFormatDecimalValues() {
         let localizedDecimalNumber = sut.formatToDecimal(20000, locale: Locale(identifier: "en-US"))
         
-        XCTAssertEqual(localizedDecimalNumber!, "20,000")
+        XCTAssertEqual(try XCTUnwrap(localizedDecimalNumber), "20,000")
     }
 
     func testFormatValues() {

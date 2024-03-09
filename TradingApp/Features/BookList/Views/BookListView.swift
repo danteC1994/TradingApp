@@ -30,6 +30,8 @@ struct BookListView: View {
                 case .error:
                     EmptyView()
                 case .loading:
+                    ProgressView()
+                case .empty:
                     EmptyView()
                 }
             }
@@ -38,6 +40,9 @@ struct BookListView: View {
             Task {
                 await viewModel.requestBooks()
             }
+        }
+        .refreshable {
+            await viewModel.requestBooks()
         }
     }
 }

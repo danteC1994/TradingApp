@@ -12,6 +12,7 @@ final class BookListViewModel: ObservableObject {
         case idle(_ stateData: IdleStateData)
         case error
         case loading
+        case empty
     }
 
     struct IdleStateData: Equatable {
@@ -29,11 +30,15 @@ final class BookListViewModel: ObservableObject {
 
     @MainActor
     func requestBooks() async {
+        state = .loading
+        do {
+            try await Task.sleep(nanoseconds: UInt64(5 * Double(NSEC_PER_SEC)))
+        } catch {}
         let bookResponse = await service.getBooksRequestable.asyncGetrequest()
         switch bookResponse {
         case let .success(bookList):
             guard let books = bookList.books else {
-                state = .error
+                state = .empty
                 return
             }
             self.state = .idle(.init(bookList: mapViewData(from: books) ))

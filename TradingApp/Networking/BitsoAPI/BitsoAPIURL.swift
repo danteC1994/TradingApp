@@ -23,7 +23,7 @@ enum BitsoAPIURL: BaseURL {
     var basePath: String {
         switch self {
         case .sandbox:
-            "/api/Vv3"
+            "/api/v3"
         case .prod:
             "/v3"
         }

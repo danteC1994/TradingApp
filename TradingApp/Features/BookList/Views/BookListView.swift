@@ -14,13 +14,17 @@ struct BookListView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.secondary
+                Color.white
                     .ignoresSafeArea()
                 switch viewModel.state {
                 case let .idle(idleData):
                     ScrollView {
                         LazyVStack {
-                            
+                            ForEach(idleData.bookList.books ?? []) { book in
+                                BookListRowView(book: book)
+                                    .padding(.horizontal)
+                                    
+                            }
                         }
                     }
                 case .error:

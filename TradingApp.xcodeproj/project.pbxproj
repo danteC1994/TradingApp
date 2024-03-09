@@ -28,6 +28,7 @@
 		813B69062B9BFB81000F3FE5 /* JsonCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69052B9BFB81000F3FE5 /* JsonCoder.swift */; };
 		813B69092B9C053C000F3FE5 /* EndpointGetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69082B9C053C000F3FE5 /* EndpointGetRequest.swift */; };
 		813B690B2B9C11AC000F3FE5 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B690A2B9C11AC000F3FE5 /* Decoder.swift */; };
+		813B690F2B9C141B000F3FE5 /* BookListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B690E2B9C141B000F3FE5 /* BookListRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		813B69052B9BFB81000F3FE5 /* JsonCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonCoder.swift; sourceTree = "<group>"; };
 		813B69082B9C053C000F3FE5 /* EndpointGetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointGetRequest.swift; sourceTree = "<group>"; };
 		813B690A2B9C11AC000F3FE5 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		813B690E2B9C141B000F3FE5 /* BookListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				813B68DC2B99ED8F000F3FE5 /* BookListView.swift */,
+				813B690E2B9C141B000F3FE5 /* BookListRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				813B690F2B9C141B000F3FE5 /* BookListRowView.swift in Sources */,
 				813B68F42B9BDE66000F3FE5 /* Endpoint+Extensions.swift in Sources */,
 				813B68DD2B99ED8F000F3FE5 /* TradingAppApp.swift in Sources */,
 				813B68EA2B9A55E7000F3FE5 /* APIError.swift in Sources */,

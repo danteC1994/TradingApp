@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Book: Decodable {
+struct Book: Decodable, Identifiable {
+    var id: UUID {
+        return UUID()
+    }
+
     let name: String
     let maximumPrice: String
     let maximumValue: String

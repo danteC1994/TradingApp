@@ -14,6 +14,12 @@
 		813B68DE2B99ED8F000F3FE5 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68DC2B99ED8F000F3FE5 /* BookListView.swift */; };
 		813B68E12B99EE64000F3FE5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813B68E02B99EE64000F3FE5 /* Preview Assets.xcassets */; };
 		813B68E32B99EEAF000F3FE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813B68E22B99EEAF000F3FE5 /* Assets.xcassets */; };
+		813B68E62B99EF7A000F3FE5 /* BookListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68E52B99EF7A000F3FE5 /* BookListViewModel.swift */; };
+		813B68EA2B9A55E7000F3FE5 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68E92B9A55E7000F3FE5 /* APIError.swift */; };
+		813B68EE2B9A5996000F3FE5 /* BitsoAPIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68ED2B9A5996000F3FE5 /* BitsoAPIURL.swift */; };
+		813B68F02B9BAC18000F3FE5 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68EF2B9BAC18000F3FE5 /* Endpoint.swift */; };
+		813B68F22B9BAC41000F3FE5 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68F12B9BAC41000F3FE5 /* BaseURL.swift */; };
+		813B68F42B9BDE66000F3FE5 /* Endpoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68F32B9BDE66000F3FE5 /* Endpoint+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +50,12 @@
 		813B68DC2B99ED8F000F3FE5 /* BookListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
 		813B68E02B99EE64000F3FE5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		813B68E22B99EEAF000F3FE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		813B68E52B99EF7A000F3FE5 /* BookListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewModel.swift; sourceTree = "<group>"; };
+		813B68E92B9A55E7000F3FE5 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		813B68ED2B9A5996000F3FE5 /* BitsoAPIURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitsoAPIURL.swift; sourceTree = "<group>"; };
+		813B68EF2B9BAC18000F3FE5 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		813B68F12B9BAC41000F3FE5 /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
+		813B68F32B9BDE66000F3FE5 /* Endpoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Endpoint+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +124,9 @@
 		813B68D62B99ED8F000F3FE5 /* TradingApp */ = {
 			isa = PBXGroup;
 			children = (
+				813B68E82B9A5578000F3FE5 /* Networking */,
+				813B68E72B99EFCA000F3FE5 /* Features */,
 				813B68D72B99ED8F000F3FE5 /* App */,
-				813B68DA2B99ED8F000F3FE5 /* BookList */,
 				813B68DF2B99EE64000F3FE5 /* Preview Content */,
 			);
 			path = TradingApp;
@@ -130,6 +143,7 @@
 		813B68DA2B99ED8F000F3FE5 /* BookList */ = {
 			isa = PBXGroup;
 			children = (
+				813B68E42B99EF5E000F3FE5 /* ViewModel */,
 				813B68DB2B99ED8F000F3FE5 /* UI */,
 			);
 			path = BookList;
@@ -149,6 +163,50 @@
 				813B68E02B99EE64000F3FE5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		813B68E42B99EF5E000F3FE5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				813B68E52B99EF7A000F3FE5 /* BookListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		813B68E72B99EFCA000F3FE5 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				813B68DA2B99ED8F000F3FE5 /* BookList */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		813B68E82B9A5578000F3FE5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				813B68EC2B9A5681000F3FE5 /* Common */,
+				813B68EB2B9A55EB000F3FE5 /* BitsoAPI */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		813B68EB2B9A55EB000F3FE5 /* BitsoAPI */ = {
+			isa = PBXGroup;
+			children = (
+				813B68ED2B9A5996000F3FE5 /* BitsoAPIURL.swift */,
+			);
+			path = BitsoAPI;
+			sourceTree = "<group>";
+		};
+		813B68EC2B9A5681000F3FE5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				813B68E92B9A55E7000F3FE5 /* APIError.swift */,
+				813B68F12B9BAC41000F3FE5 /* BaseURL.swift */,
+				813B68EF2B9BAC18000F3FE5 /* Endpoint.swift */,
+				813B68F32B9BDE66000F3FE5 /* Endpoint+Extensions.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,8 +339,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				813B68F42B9BDE66000F3FE5 /* Endpoint+Extensions.swift in Sources */,
 				813B68DD2B99ED8F000F3FE5 /* TradingAppApp.swift in Sources */,
+				813B68EA2B9A55E7000F3FE5 /* APIError.swift in Sources */,
+				813B68F22B9BAC41000F3FE5 /* BaseURL.swift in Sources */,
 				813B68DE2B99ED8F000F3FE5 /* BookListView.swift in Sources */,
+				813B68EE2B9A5996000F3FE5 /* BitsoAPIURL.swift in Sources */,
+				813B68F02B9BAC18000F3FE5 /* Endpoint.swift in Sources */,
+				813B68E62B99EF7A000F3FE5 /* BookListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

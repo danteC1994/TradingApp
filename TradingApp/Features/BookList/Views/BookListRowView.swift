@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct BookListRowView: View {
-    let book: Book
+    let book: BookListViewData
     var body: some View {
         ZStack {
             Rectangle()
                 .foregroundColor(Color.green)
             HStack {
                 VStack(spacing: 16) {
-                    Text(book.name)
+                    Text(book.bookName)
                         .foregroundColor(.black)
                         .font(.title)
                         .fontWeight(.bold)
@@ -25,12 +25,7 @@ struct BookListRowView: View {
                         .font(.body)
                         .fontWeight(.bold)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Text(book.maximumValue)
-                        .foregroundColor(.black)
-                        .font(.body)
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text(book.minimumValue)
+                    Text(book.values)
                         .foregroundColor(.black)
                         .font(.body)
                         .fontWeight(.bold)
@@ -47,11 +42,9 @@ struct BookListRowView: View {
 #Preview {
     BookListRowView(
         book: .init(
-            name: "BTC MXN",
+            bookName: "BTC MXN",
             maximumPrice: "500000.00",
-            maximumValue: "200000000.00",
-            minimumValue: "10.00000000"
-            
+            values: "200000000.00 - 10.00000000"
         )
     )
 }

@@ -23,7 +23,20 @@ final class BookListViewModelTests: XCTestCase {
 
     func testRequestBooks_withSuccessResponse() async {
         await sut.requestBooks()
-        XCTAssertEqual(sut.state, .idle(.init(bookList: getBookListModel())))
+        XCTAssertEqual(
+            sut.state,
+            .idle(
+                .init(
+                    bookList: [
+                        .init(
+                            bookName: "BTC MXN",
+                            maximumPrice: "500000.00",
+                            values: "200000000.00 - 10.00000000"
+                        )
+                    ]
+                )
+            )
+        )
     }
 
     func testRequestBooks_withErrorResponse() async {
@@ -36,6 +49,24 @@ final class BookListViewModelTests: XCTestCase {
         sut = BookListViewModel(state: .loading, service: service)
         await sut.requestBooks()
         XCTAssertEqual(sut.state, .error)
+    }
+
+    func testMaximumPriceLocalized() {
+        let localizedPrice = sut.maximumPriceLocalized(price: 20000, locale: Locale(identifier: "en-US"))
+        
+        XCTAssertEqual(localizedPrice!, "$20,000.00")
+    }
+
+    func testFormatDecimalValues() {
+        let localizedDecimalNumber = sut.formatToDecimal(20000, locale: Locale(identifier: "en-US"))
+        
+        XCTAssertEqual(localizedDecimalNumber!, "20,000")
+    }
+
+    func testFormatValues() {
+        let formattedValues = sut.formatValues(minimumValue: 5000, maximumValue: 20000, locale: Locale(identifier: "en-US"))
+        
+        XCTAssertEqual(formattedValues!, "20.000 - 5.000")
     }
 }
 

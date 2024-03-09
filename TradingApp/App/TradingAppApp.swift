@@ -16,9 +16,13 @@ struct TradingAppApp: App {
                     state: .idle(
                         .init(
                             bookList: .init(
-                                books: [],
-                                success: true,
-                                error: nil
+                                [
+                                    .init(
+                                        bookName: "BTC MXN",
+                                        maximumPrice: "500000.00",
+                                        values: "200000000.00 - 10.00000000"
+                                    )
+                                ]
                             )
                         )
                     ),

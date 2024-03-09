@@ -20,7 +20,7 @@ struct BookListView: View {
                 case let .idle(idleData):
                     ScrollView {
                         LazyVStack {
-                            ForEach(idleData.bookList.books ?? []) { book in
+                            ForEach(idleData.bookList) { book in
                                 BookListRowView(book: book)
                                     .padding(.horizontal)
                                     
@@ -48,16 +48,13 @@ struct BookListView: View {
             state: .idle(
                 .init(
                     bookList: .init(
-                        books: [
+                        [
                             .init(
-                                name: "BTC MXN",
+                                bookName: "BTC MXN",
                                 maximumPrice: "500000.00",
-                                maximumValue: "200000000.00",
-                                minimumValue: "10.00000000"
+                                values: "200000000.00 - 10.00000000"
                             )
-                        ],
-                        success: true,
-                        error: nil
+                        ]
                     )
                 )
             ),

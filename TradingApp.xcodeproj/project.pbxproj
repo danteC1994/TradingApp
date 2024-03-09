@@ -34,6 +34,7 @@
 		813B69182B9CA98A000F3FE5 /* CoderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69172B9CA98A000F3FE5 /* CoderMock.swift */; };
 		813B691A2B9CAD0D000F3FE5 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69192B9CAD0D000F3FE5 /* Session.swift */; };
 		813B691C2B9CAD2A000F3FE5 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B691B2B9CAD2A000F3FE5 /* URL+Extensions.swift */; };
+		813B691F2B9CF676000F3FE5 /* BookListViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B691E2B9CF676000F3FE5 /* BookListViewData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		813B69172B9CA98A000F3FE5 /* CoderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderMock.swift; sourceTree = "<group>"; };
 		813B69192B9CAD0D000F3FE5 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		813B691B2B9CAD2A000F3FE5 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		813B691E2B9CF676000F3FE5 /* BookListViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +253,7 @@
 				813B68F62B9BE8BD000F3FE5 /* BookList.swift */,
 				813B68F92B9BE938000F3FE5 /* Book.swift */,
 				813B68FB2B9BEA5F000F3FE5 /* BookAPIError.swift */,
+				813B691E2B9CF676000F3FE5 /* BookListViewData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				813B690F2B9C141B000F3FE5 /* BookListRowView.swift in Sources */,
+				813B691F2B9CF676000F3FE5 /* BookListViewData.swift in Sources */,
 				813B68F42B9BDE66000F3FE5 /* Endpoint+Extensions.swift in Sources */,
 				813B68DD2B99ED8F000F3FE5 /* TradingAppApp.swift in Sources */,
 				813B68EA2B9A55E7000F3FE5 /* APIError.swift in Sources */,

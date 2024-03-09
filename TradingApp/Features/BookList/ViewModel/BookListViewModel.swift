@@ -15,7 +15,7 @@ final class BookListViewModel: ObservableObject {
     }
 
     struct IdleStateData: Equatable {
-        let bookList: BookList
+        let bookList: [BookListViewData]
     }
 
     let service: BookListService
@@ -32,9 +32,59 @@ final class BookListViewModel: ObservableObject {
         let bookResponse = await service.getBooksRequestable.asyncGetrequest()
         switch bookResponse {
         case let .success(bookList):
-            self.state = .idle(.init(bookList: bookList))
+            guard let books = bookList.books else {
+                state = .error
+                return
+            }
+            self.state = .idle(.init(bookList: mapViewData(from: books) ))
         case .failure:
             self.state = .error
         }
+    }
+}
+
+extension BookListViewModel {
+    func mapViewData(from bookList: [Book]) -> [BookListViewData] {
+        bookList.compactMap { book -> BookListViewData? in
+            guard let price = Double(book.maximumPrice),
+                  let localizedPrice = maximumPriceLocalized(price: price),
+                  let minimumValue = Double(book.minimumValue),
+                  let maximumValue = Double(book.maximumValue),
+                  let valuesFormatted = formatValues(minimumValue: minimumValue, maximumValue: maximumValue)
+            else { return nil }
+                return .init(
+                    bookName: updateBookName(book.name),
+                    maximumPrice: localizedPrice,
+                    values: valuesFormatted
+                )
+        }
+    }
+
+    func maximumPriceLocalized(price: Double, locale: Locale = .current) -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = locale
+        
+        return formatter.string(from: NSNumber(value: price))
+    }
+
+    func formatToDecimal(_ number: Double, locale: Locale = .current) -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.locale = locale
+
+        return formatter.string(from: NSNumber(value: number))
+    }
+
+    func formatValues(minimumValue: Double, maximumValue: Double, locale: Locale = .current) -> String? {
+        guard let minimumValueFormated = formatToDecimal(minimumValue),
+              let maximumValueFormated = formatToDecimal(maximumValue)
+        else { return nil }
+
+        return "\(maximumValueFormated) - \(minimumValueFormated)"
+    }
+
+    private func updateBookName(_ name: String) -> String {
+        name.replacingOccurrences(of: "_", with: " ").uppercased()
     }
 }

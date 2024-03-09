@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BookDetailsEndpoint: Endpoint {
+struct TickerEndpoint: Endpoint {
     var baseURL: BaseURL { BitsoAPIURL.prod }
     
     var endpointPath: String { "/ticker" }

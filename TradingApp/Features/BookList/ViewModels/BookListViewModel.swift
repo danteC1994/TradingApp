@@ -31,9 +31,6 @@ final class BookListViewModel: ObservableObject {
     @MainActor
     func requestBooks() async {
         state = .loading
-        do {
-            try await Task.sleep(nanoseconds: UInt64(5 * Double(NSEC_PER_SEC)))
-        } catch {}
         let bookResponse = await service.getBooksRequestable.asyncGetrequest()
         switch bookResponse {
         case let .success(bookList):

@@ -14,7 +14,7 @@ struct Book: Decodable {
     let minimumValue: String
 
     enum CodingKeys: String, CodingKey {
-        case name = "name"
+        case name = "book"
         case maximumPrice
         case maximumValue
         case minimumValue

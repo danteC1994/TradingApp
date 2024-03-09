@@ -11,7 +11,26 @@ import SwiftUI
 struct TradingAppApp: App {
     var body: some Scene {
         WindowGroup {
-            BookListView()
+            BookListView(
+                viewModel: .init(
+                    state: .idle(
+                        .init(
+                            bookList: .init(
+                                books: [],
+                                success: true,
+                                error: nil
+                            )
+                        )
+                    ),
+                    service: .init(
+                        getBooksRequestable: .init(
+                            coder: JsonCoder(),
+                            endpoint: BookListEndpoint(queryItems: []),
+                            session: .init(configuration: .default)
+                        )
+                    )
+                )
+            )
         }
     }
 }

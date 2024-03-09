@@ -30,6 +30,11 @@ struct BookListView: View {
                 }
             }
         }
+        .onAppear {
+            Task {
+                await viewModel.requestBooks()
+            }
+        }
     }
 }
 
@@ -38,10 +43,25 @@ struct BookListView: View {
         viewModel: .init(
             state: .idle(
                 .init(
-                    bookName: "BTC MXN",
-                    maximumPrice: "500000.00",
-                    maximumValue: "200000000.00",
-                    minimumValue: "10.00000000"
+                    bookList: .init(
+                        books: [
+                            .init(
+                                name: "BTC MXN",
+                                maximumPrice: "500000.00",
+                                maximumValue: "200000000.00",
+                                minimumValue: "10.00000000"
+                            )
+                        ],
+                        success: true,
+                        error: nil
+                    )
+                )
+            ),
+            service: .init(
+                getBooksRequestable: .init(
+                    coder: JsonCoder(),
+                    endpoint: BookListEndpoint(queryItems: []),
+                    session: .init(configuration: .default)
                 )
             )
         )

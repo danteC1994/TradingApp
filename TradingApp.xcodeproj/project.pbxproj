@@ -23,6 +23,11 @@
 		813B68F72B9BE8BD000F3FE5 /* BookList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68F62B9BE8BD000F3FE5 /* BookList.swift */; };
 		813B68FA2B9BE938000F3FE5 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68F92B9BE938000F3FE5 /* Book.swift */; };
 		813B68FC2B9BEA5F000F3FE5 /* BookAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68FB2B9BEA5F000F3FE5 /* BookAPIError.swift */; };
+		813B68FF2B9BEC3E000F3FE5 /* BookListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68FE2B9BEC3E000F3FE5 /* BookListService.swift */; };
+		813B69012B9BEC6C000F3FE5 /* BookListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69002B9BEC6C000F3FE5 /* BookListEndpoint.swift */; };
+		813B69062B9BFB81000F3FE5 /* JsonCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69052B9BFB81000F3FE5 /* JsonCoder.swift */; };
+		813B69092B9C053C000F3FE5 /* EndpointGetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69082B9C053C000F3FE5 /* EndpointGetRequest.swift */; };
+		813B690B2B9C11AC000F3FE5 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B690A2B9C11AC000F3FE5 /* Decoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +67,11 @@
 		813B68F62B9BE8BD000F3FE5 /* BookList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookList.swift; sourceTree = "<group>"; };
 		813B68F92B9BE938000F3FE5 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		813B68FB2B9BEA5F000F3FE5 /* BookAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAPIError.swift; sourceTree = "<group>"; };
+		813B68FE2B9BEC3E000F3FE5 /* BookListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListService.swift; sourceTree = "<group>"; };
+		813B69002B9BEC6C000F3FE5 /* BookListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListEndpoint.swift; sourceTree = "<group>"; };
+		813B69052B9BFB81000F3FE5 /* JsonCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonCoder.swift; sourceTree = "<group>"; };
+		813B69082B9C053C000F3FE5 /* EndpointGetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointGetRequest.swift; sourceTree = "<group>"; };
+		813B690A2B9C11AC000F3FE5 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +159,7 @@
 		813B68DA2B99ED8F000F3FE5 /* BookList */ = {
 			isa = PBXGroup;
 			children = (
+				813B68FD2B9BEC2E000F3FE5 /* Service */,
 				813B68F82B9BE8C9000F3FE5 /* Models */,
 				813B68E42B99EF5E000F3FE5 /* ViewModel */,
 				813B68DB2B99ED8F000F3FE5 /* Views */,
@@ -191,6 +202,8 @@
 		813B68E82B9A5578000F3FE5 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				813B69072B9C04FD000F3FE5 /* ServiceRequests */,
+				813B69042B9BFAD8000F3FE5 /* Extensions */,
 				813B68EC2B9A5681000F3FE5 /* Common */,
 				813B68EB2B9A55EB000F3FE5 /* BitsoAPI */,
 			);
@@ -211,7 +224,8 @@
 				813B68E92B9A55E7000F3FE5 /* APIError.swift */,
 				813B68F12B9BAC41000F3FE5 /* BaseURL.swift */,
 				813B68EF2B9BAC18000F3FE5 /* Endpoint.swift */,
-				813B68F32B9BDE66000F3FE5 /* Endpoint+Extensions.swift */,
+				813B69052B9BFB81000F3FE5 /* JsonCoder.swift */,
+				813B690A2B9C11AC000F3FE5 /* Decoder.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -224,6 +238,31 @@
 				813B68FB2B9BEA5F000F3FE5 /* BookAPIError.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		813B68FD2B9BEC2E000F3FE5 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				813B68FE2B9BEC3E000F3FE5 /* BookListService.swift */,
+				813B69002B9BEC6C000F3FE5 /* BookListEndpoint.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		813B69042B9BFAD8000F3FE5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				813B68F32B9BDE66000F3FE5 /* Endpoint+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		813B69072B9C04FD000F3FE5 /* ServiceRequests */ = {
+			isa = PBXGroup;
+			children = (
+				813B69082B9C053C000F3FE5 /* EndpointGetRequest.swift */,
+			);
+			path = ServiceRequests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,13 +398,18 @@
 				813B68F42B9BDE66000F3FE5 /* Endpoint+Extensions.swift in Sources */,
 				813B68DD2B99ED8F000F3FE5 /* TradingAppApp.swift in Sources */,
 				813B68EA2B9A55E7000F3FE5 /* APIError.swift in Sources */,
+				813B69012B9BEC6C000F3FE5 /* BookListEndpoint.swift in Sources */,
+				813B69092B9C053C000F3FE5 /* EndpointGetRequest.swift in Sources */,
 				813B68F22B9BAC41000F3FE5 /* BaseURL.swift in Sources */,
+				813B69062B9BFB81000F3FE5 /* JsonCoder.swift in Sources */,
+				813B68FF2B9BEC3E000F3FE5 /* BookListService.swift in Sources */,
 				813B68DE2B99ED8F000F3FE5 /* BookListView.swift in Sources */,
 				813B68EE2B9A5996000F3FE5 /* BitsoAPIURL.swift in Sources */,
 				813B68F72B9BE8BD000F3FE5 /* BookList.swift in Sources */,
 				813B68F02B9BAC18000F3FE5 /* Endpoint.swift in Sources */,
 				813B68FA2B9BE938000F3FE5 /* Book.swift in Sources */,
 				813B68E62B99EF7A000F3FE5 /* BookListViewModel.swift in Sources */,
+				813B690B2B9C11AC000F3FE5 /* Decoder.swift in Sources */,
 				813B68FC2B9BEA5F000F3FE5 /* BookAPIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

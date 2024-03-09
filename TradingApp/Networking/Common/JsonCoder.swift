@@ -1,0 +1,23 @@
+//
+//  JsonCoder.swift
+//  TradingApp
+//
+//  Created by dante canizo on 08/03/2024.
+//
+
+import Foundation
+
+/// This struct is meant to implement coding data behaviors, such as encoding and decoding.
+struct JsonCoder: Decoder {
+    var decoder = JSONDecoder()
+    
+    /// Decodes a generic type from specific data.
+    func decode<T: Decodable>(data: Data, dataType: T.Type) -> T? {
+        do {
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            return try decoder.decode(T.self, from: data)
+        } catch {
+            return nil
+        }
+    }
+}

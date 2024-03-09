@@ -15,16 +15,27 @@ final class BookListViewModel: ObservableObject {
     }
 
     struct IdleStateData {
-        let bookName: String
-        let maximumPrice: String
-        let maximumValue: String
-        let minimumValue: String
+        let bookList: BookList
     }
+
+    let service: BookListService
 
     @Published private(set) var state: State
 
-    init(state: State) {
+    init(state: State, service: BookListService) {
         self.state = state
+        self.service = service
+    }
+
+    @MainActor
+    func requestBooks() async {
+        let bookResponse = await service.getBooksRequestable.asyncGetrequest()
+        switch bookResponse {
+        case let .success(bookList):
+            self.state = .idle(.init(bookList: bookList))
+        case .failure:
+            self.state = .error
+        }
     }
 
 }

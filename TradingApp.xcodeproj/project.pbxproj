@@ -42,6 +42,9 @@
 		813B692E2B9D0773000F3FE5 /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B692D2B9D0773000F3FE5 /* Ticker.swift */; };
 		813B69302B9D0A1E000F3FE5 /* TickerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B692F2B9D0A1E000F3FE5 /* TickerResponse.swift */; };
 		813B69352B9E002D000F3FE5 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69342B9E002D000F3FE5 /* RowView.swift */; };
+		813B69372B9E15D8000F3FE5 /* TickerDetailsViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69362B9E15D8000F3FE5 /* TickerDetailsViewData.swift */; };
+		813B693A2B9E161D000F3FE5 /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69392B9E161D000F3FE5 /* Localizer.swift */; };
+		813B693C2B9E1633000F3FE5 /* BitsoLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B693B2B9E1633000F3FE5 /* BitsoLocalizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +103,9 @@
 		813B692D2B9D0773000F3FE5 /* Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
 		813B692F2B9D0A1E000F3FE5 /* TickerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerResponse.swift; sourceTree = "<group>"; };
 		813B69342B9E002D000F3FE5 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
+		813B69362B9E15D8000F3FE5 /* TickerDetailsViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerDetailsViewData.swift; sourceTree = "<group>"; };
+		813B69392B9E161D000F3FE5 /* Localizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
+		813B693B2B9E1633000F3FE5 /* BitsoLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitsoLocalizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +232,7 @@
 		813B68E72B99EFCA000F3FE5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				813B69382B9E160E000F3FE5 /* Common */,
 				813B69202B9D0028000F3FE5 /* BookDetails */,
 				813B68DA2B99ED8F000F3FE5 /* BookList */,
 			);
@@ -359,6 +366,7 @@
 			children = (
 				813B692D2B9D0773000F3FE5 /* Ticker.swift */,
 				813B692F2B9D0A1E000F3FE5 /* TickerResponse.swift */,
+				813B69362B9E15D8000F3FE5 /* TickerDetailsViewData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -385,6 +393,15 @@
 				813B69342B9E002D000F3FE5 /* RowView.swift */,
 			);
 			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		813B69382B9E160E000F3FE5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				813B69392B9E161D000F3FE5 /* Localizer.swift */,
+				813B693B2B9E1633000F3FE5 /* BitsoLocalizer.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -523,6 +540,7 @@
 				813B68F42B9BDE66000F3FE5 /* Endpoint+Extensions.swift in Sources */,
 				813B68DD2B99ED8F000F3FE5 /* TradingAppApp.swift in Sources */,
 				813B692C2B9D00B5000F3FE5 /* TickerService.swift in Sources */,
+				813B693A2B9E161D000F3FE5 /* Localizer.swift in Sources */,
 				813B68EA2B9A55E7000F3FE5 /* APIError.swift in Sources */,
 				813B692E2B9D0773000F3FE5 /* Ticker.swift in Sources */,
 				813B69012B9BEC6C000F3FE5 /* BookListEndpoint.swift in Sources */,
@@ -539,11 +557,13 @@
 				813B68F72B9BE8BD000F3FE5 /* BookList.swift in Sources */,
 				813B69282B9D0083000F3FE5 /* TickerDetailsViewModel.swift in Sources */,
 				813B68F02B9BAC18000F3FE5 /* Endpoint.swift in Sources */,
+				813B693C2B9E1633000F3FE5 /* BitsoLocalizer.swift in Sources */,
 				813B69352B9E002D000F3FE5 /* RowView.swift in Sources */,
 				813B68FA2B9BE938000F3FE5 /* Book.swift in Sources */,
 				813B68E62B99EF7A000F3FE5 /* BookListViewModel.swift in Sources */,
 				813B690B2B9C11AC000F3FE5 /* Decoder.swift in Sources */,
 				813B68FC2B9BEA5F000F3FE5 /* BookAPIError.swift in Sources */,
+				813B69372B9E15D8000F3FE5 /* TickerDetailsViewData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

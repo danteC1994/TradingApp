@@ -18,16 +18,18 @@ struct TickerDetailsView: View {
                     RoundedRectangle(cornerRadius: 25)
                         .fill(.white)
                         .shadow(color: .green, radius: 10)
-                    HStack {
+                    HStack(alignment: .top) {
                         VStack(spacing: 20) {
-                            RowView(title: "Volume:", subtitle: ticker.ticker.volume)
-                            RowView(title: "High:", subtitle: ticker.ticker.high)
-                            RowView(title: "Price variation:", subtitle: ticker.ticker.priceVariation ?? "")
+                            getRow(title: "Volume:", value: ticker.ticker.volume)
+                            getRow(title: "High:", value: ticker.ticker.high)
+                            getRow(title: "Price variation:", value: ticker.ticker.priceVariation)
                             Spacer()
-                            Divider()
-                                .foregroundColor(.black)
-                            RowView(title: "Ask:", subtitle: ticker.ticker.ask)
-                            RowView(title: "Bid:", subtitle: ticker.ticker.bid)
+                            if ticker.ticker.ask != nil || ticker.ticker.bid != nil {
+                                Divider()
+                                    .foregroundColor(.black)
+                            }
+                            getRow(title: "Ask:", value: ticker.ticker.ask)
+                            getRow(title: "Bid:", value: ticker.ticker.bid)
                         }
                     }
                     .padding()
@@ -48,8 +50,16 @@ struct TickerDetailsView: View {
             }
         }
     }
+
+    @ViewBuilder
+    private func getRow(title: String, value: String?) -> some View {
+        if let value {
+            RowView(title: title, subtitle: value)
+        }
+        EmptyView()
+    }
 }
 
 #Preview {
-    TickerDetailsView(viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: .init(getTickerRequestable: .init(coder: JsonCoder(), endpoint: TickerEndpoint(queryItems: [.init(name: "book", value: "btc_mxn")]), session: URLSession(configuration: .default)))))
+    TickerDetailsView(viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: .init(getTickerRequestable: .init(coder: JsonCoder(), endpoint: TickerEndpoint(queryItems: [.init(name: "book", value: "btc_mxn")]), session: URLSession(configuration: .default))), localizer: BitsoLocalizer()))
 }

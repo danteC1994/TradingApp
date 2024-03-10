@@ -20,12 +20,14 @@ final class BookListViewModel: ObservableObject {
     }
 
     let service: BookListService
+    let localizer: Localizer
 
     @Published private(set) var state: State
 
-    init(state: State, service: BookListService) {
+    init(state: State, service: BookListService, localizer: Localizer) {
         self.state = state
         self.service = service
+        self.localizer = localizer
     }
 
     @MainActor
@@ -49,7 +51,7 @@ extension BookListViewModel {
     func mapViewData(from bookList: [Book]) -> [BookListViewData] {
         bookList.compactMap { book -> BookListViewData? in
             guard let price = Double(book.maximumPrice),
-                  let localizedPrice = maximumPriceLocalized(price: price),
+                  let localizedPrice = localizer.priceLocalized(price: price, locale: .current),
                   let minimumValue = Double(book.minimumValue),
                   let maximumValue = Double(book.maximumValue),
                   let valuesFormatted = formatValues(minimumValue: minimumValue, maximumValue: maximumValue)
@@ -62,25 +64,25 @@ extension BookListViewModel {
         }
     }
 
-    func maximumPriceLocalized(price: Double, locale: Locale = .current) -> String? {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.locale = locale
-        
-        return formatter.string(from: NSNumber(value: price))
-    }
+//    func maximumPriceLocalized(price: Double, locale: Locale = .current) -> String? {
+//        let formatter = NumberFormatter()
+//        formatter.numberStyle = .currency
+//        formatter.locale = locale
+//        
+//        return formatter.string(from: NSNumber(value: price))
+//    }
 
-    func formatToDecimal(_ number: Double, locale: Locale = .current) -> String? {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.locale = locale
-
-        return formatter.string(from: NSNumber(value: number))
-    }
+//    func formatToDecimal(_ number: Double, locale: Locale = .current) -> String? {
+//        let formatter = NumberFormatter()
+//        formatter.numberStyle = .decimal
+//        formatter.locale = locale
+//
+//        return formatter.string(from: NSNumber(value: number))
+//    }
 
     func formatValues(minimumValue: Double, maximumValue: Double, locale: Locale = .current) -> String? {
-        guard let minimumValueFormated = formatToDecimal(minimumValue),
-              let maximumValueFormated = formatToDecimal(maximumValue)
+        guard let minimumValueFormated = localizer.decimalLocalized(minimumValue, locale: .current),
+              let maximumValueFormated = localizer.decimalLocalized(maximumValue, locale: .current)
         else { return nil }
 
         return "\(maximumValueFormated) - \(minimumValueFormated)"

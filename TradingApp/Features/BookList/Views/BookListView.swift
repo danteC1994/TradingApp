@@ -41,7 +41,7 @@ struct BookListView: View {
             .navigationDestination(
                 isPresented: $navigate
             ) {
-                TickerDetailsView(viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: .init(getTickerRequestable: .init(coder: JsonCoder(), endpoint: TickerEndpoint(queryItems: [.init(name: "book", value: "btc_mxn")]), session: URLSession(configuration: .default)))))
+                TickerDetailsView(viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: .init(getTickerRequestable: .init(coder: JsonCoder(), endpoint: TickerEndpoint(queryItems: [.init(name: "book", value: "btc_mxn")]), session: URLSession(configuration: .default))), localizer: BitsoLocalizer()))
             }
         }
         .onAppear {
@@ -77,7 +77,8 @@ struct BookListView: View {
                     endpoint: BookListEndpoint(queryItems: []),
                     session: URLSession(configuration: .default)
                 )
-            )
+            ),
+            localizer: BitsoLocalizer()
         )
     )
 }

@@ -32,7 +32,8 @@ struct TradingAppApp: App {
                             endpoint: BookListEndpoint(queryItems: []),
                             session: URLSession(configuration: .default)
                         )
-                    )
+                    ),
+                    localizer: BitsoLocalizer()
                 )
             )
         }

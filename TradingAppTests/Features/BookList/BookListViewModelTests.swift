@@ -10,15 +10,21 @@ import XCTest
 
 final class BookListViewModelTests: XCTestCase {
     var sut: BookListViewModel!
+    var endpointRequester: EndpointGetRequest<BookList>!
 
     override func setUp() {
-        let endpointRequester: EndpointGetRequest<BookList> = EndpointGetRequest(
+        endpointRequester = EndpointGetRequest(
             coder: JsonCoder(),
             endpoint: BookListEndpoint(),
             session: SessionMock()
         )
         let service = BookListService(getBooksRequestable: endpointRequester)
-        sut = BookListViewModel(state: .loading, service: service)
+        sut = BookListViewModel(state: .loading, service: service, localizer: BitsoLocalizer())
+    }
+
+    override func tearDown() {
+        sut = nil
+        endpointRequester = nil
     }
 
     func testRequestBooks_withSuccessResponse() async {
@@ -40,27 +46,22 @@ final class BookListViewModelTests: XCTestCase {
     }
 
     func testRequestBooks_withErrorResponse() async {
-        let endpointRequester: EndpointGetRequest<BookList> = EndpointGetRequest(
-            coder: CoderMock(),
-            endpoint: BookListEndpoint(),
-            session: SessionMock()
-        )
         let service = BookListService(getBooksRequestable: endpointRequester)
-        sut = BookListViewModel(state: .loading, service: service)
+        sut = BookListViewModel(state: .loading, service: service, localizer: BitsoLocalizer())
         await sut.requestBooks()
         XCTAssertEqual(sut.state, .error)
     }
 
-    func testMaximumPriceLocalized() {
-        let localizedPrice = sut.maximumPriceLocalized(price: 20000, locale: Locale(identifier: "en-US"))
-        
-        XCTAssertEqual(localizedPrice!, "$20,000.00")
-    }
+    func testMapViewData() {
+        var books: [Book]
+        books = getBookListModel().books ?? []
 
-    func testFormatDecimalValues() {
-        let localizedDecimalNumber = sut.formatToDecimal(20000, locale: Locale(identifier: "en-US"))
-        
-        XCTAssertEqual(try XCTUnwrap(localizedDecimalNumber), "20,000")
+        let viewData = sut.mapViewData(from: books)
+
+        XCTAssertEqual(viewData.count, 1)
+        XCTAssertEqual(viewData.first?.bookName, "BTC MXN")
+        XCTAssertEqual(viewData.first?.maximumPrice, "$ 7.000.000,00")
+        XCTAssertEqual(viewData.first?.values, "200.000.000 - 10")
     }
 
     func testFormatValues() {

@@ -56,29 +56,13 @@ extension BookListViewModel {
                   let maximumValue = Double(book.maximumValue),
                   let valuesFormatted = formatValues(minimumValue: minimumValue, maximumValue: maximumValue)
             else { return nil }
-                return .init(
-                    bookName: updateBookName(book.name),
-                    maximumPrice: localizedPrice,
-                    values: valuesFormatted
-                )
+            return .init(
+                bookName: updateBookName(book.name),
+                maximumPrice: localizedPrice,
+                values: valuesFormatted
+            )
         }
     }
-
-//    func maximumPriceLocalized(price: Double, locale: Locale = .current) -> String? {
-//        let formatter = NumberFormatter()
-//        formatter.numberStyle = .currency
-//        formatter.locale = locale
-//        
-//        return formatter.string(from: NSNumber(value: price))
-//    }
-
-//    func formatToDecimal(_ number: Double, locale: Locale = .current) -> String? {
-//        let formatter = NumberFormatter()
-//        formatter.numberStyle = .decimal
-//        formatter.locale = locale
-//
-//        return formatter.string(from: NSNumber(value: number))
-//    }
 
     func formatValues(minimumValue: Double, maximumValue: Double, locale: Locale = .current) -> String? {
         guard let minimumValueFormated = localizer.decimalLocalized(minimumValue, locale: .current),

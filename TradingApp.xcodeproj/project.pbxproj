@@ -45,6 +45,7 @@
 		813B69372B9E15D8000F3FE5 /* TickerDetailsViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69362B9E15D8000F3FE5 /* TickerDetailsViewData.swift */; };
 		813B693A2B9E161D000F3FE5 /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69392B9E161D000F3FE5 /* Localizer.swift */; };
 		813B693C2B9E1633000F3FE5 /* BitsoLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B693B2B9E1633000F3FE5 /* BitsoLocalizer.swift */; };
+		813B693F2B9E1C47000F3FE5 /* BitsoLocalizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B693E2B9E1C47000F3FE5 /* BitsoLocalizerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		813B69362B9E15D8000F3FE5 /* TickerDetailsViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerDetailsViewData.swift; sourceTree = "<group>"; };
 		813B69392B9E161D000F3FE5 /* Localizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
 		813B693B2B9E1633000F3FE5 /* BitsoLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitsoLocalizer.swift; sourceTree = "<group>"; };
+		813B693E2B9E1C47000F3FE5 /* BitsoLocalizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitsoLocalizerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +312,7 @@
 		813B69102B9C99E0000F3FE5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				813B693D2B9E1C36000F3FE5 /* Common */,
 				813B69112B9C99EC000F3FE5 /* BookList */,
 			);
 			path = Features;
@@ -400,6 +403,14 @@
 			children = (
 				813B69392B9E161D000F3FE5 /* Localizer.swift */,
 				813B693B2B9E1633000F3FE5 /* BitsoLocalizer.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		813B693D2B9E1C36000F3FE5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				813B693E2B9E1C47000F3FE5 /* BitsoLocalizerTests.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -573,6 +584,7 @@
 			files = (
 				813B68B92B99E14E000F3FE5 /* TradingAppTests.swift in Sources */,
 				813B69182B9CA98A000F3FE5 /* CoderMock.swift in Sources */,
+				813B693F2B9E1C47000F3FE5 /* BitsoLocalizerTests.swift in Sources */,
 				813B69132B9C9A03000F3FE5 /* BookListViewModelTests.swift in Sources */,
 				813B69162B9CA951000F3FE5 /* SessionMock.swift in Sources */,
 			);

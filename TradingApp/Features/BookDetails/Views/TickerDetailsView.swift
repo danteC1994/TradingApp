@@ -37,8 +37,12 @@ struct TickerDetailsView: View {
                 }
                 .padding(.horizontal)
                 .padding(.vertical, 60)
-            case .error:
-                EmptyView()
+            case let .error(errorData):
+                GenericErrorView(
+                    title: errorData.errorTitle,
+                    subtitle: errorData.errorSubtitle,
+                    retryAction: { Task { await viewModel.requestTicker() } }
+                )
             case .loading:
                 ProgressView()
             case .empty:

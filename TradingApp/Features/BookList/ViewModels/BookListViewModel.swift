@@ -35,10 +35,6 @@ final class BookListViewModel: ObservableObject {
         self.localizer = localizer
     }
 
-    func refresh() async {
-        await requestBooks()
-    }
-
     @MainActor
     func requestBooks() async {
         state = .loading

@@ -10,13 +10,18 @@ import Foundation
 final class TickerDetailsViewModel: ObservableObject {
     enum State: Equatable {
         case idle(_ stateData: IdleStateData)
-        case error
+        case error(_ stateData: ErrorStateData)
         case loading
         case empty
     }
 
     struct IdleStateData: Equatable {
         let ticker: TickerDetailsViewData
+    }
+
+    struct ErrorStateData: Equatable {
+        let errorTitle: String
+        let errorSubtitle: String
     }
 
     private let service: TickerService
@@ -42,8 +47,15 @@ final class TickerDetailsViewModel: ObservableObject {
             }
             
             state = .idle(.init(ticker: mapToViewData(ticker: ticker)))
-        case .failure:
-            state = .error
+        case let .failure(error):
+            switch error {
+            case .url:
+                state = .error(.init(errorTitle: "Something went wrong", errorSubtitle: "We are having technical problems"))
+            case .network:
+                state = .error(.init(errorTitle: "Try again!", errorSubtitle: "Something went wrong, try reloading"))
+            case .decoding:
+                state = .error(.init(errorTitle: "Something went wrong", errorSubtitle: "We are having technical problems"))
+            }
         }
     }
 }

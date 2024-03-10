@@ -11,30 +11,29 @@ struct TickerDetailsView: View {
     @ObservedObject var viewModel: TickerDetailsViewModel
 
     var body: some View {
-        ZStack {
-            Color.white
-                .ignoresSafeArea()
+        VStack {
             switch viewModel.state {
             case let .idle(ticker):
-                Rectangle()
-                    .foregroundColor(Color.secondary)
-                    .cornerRadius(60)
-                VStack{
-                    VStack {
-                        HStack {
-                            VStack(spacing: 16) {
-                                Text(ticker.ticker.ask)
-                                    .foregroundColor(.black)
-                                    .font(.title)
-                                    .fontWeight(.bold)
-                                    .frame(maxWidth: .infinity, alignment: .center)
-                            }
-                            .padding(.leading)
+                ZStack {
+                    RoundedRectangle(cornerRadius: 25)
+                        .fill(.white)
+                        .shadow(color: .green, radius: 10)
+                    HStack {
+                        VStack(spacing: 20) {
+                            RowView(title: "Volume:", subtitle: ticker.ticker.volume)
+                            RowView(title: "High:", subtitle: ticker.ticker.high)
+                            RowView(title: "Price variation:", subtitle: ticker.ticker.priceVariation ?? "")
+                            Spacer()
+                            Divider()
+                                .foregroundColor(.black)
+                            RowView(title: "Ask:", subtitle: ticker.ticker.ask)
+                            RowView(title: "Bid:", subtitle: ticker.ticker.bid)
                         }
                     }
+                    .padding()
                 }
-                .frame(maxHeight: .infinity, alignment: .top)
-                .padding()
+                .padding(.horizontal)
+                .padding(.vertical, 100)
             case .error:
                 EmptyView()
             case .loading:

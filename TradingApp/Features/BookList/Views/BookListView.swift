@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 
 struct BookListView: View {
+    @State var navigate: Bool = false
     @ObservedObject var viewModel: BookListViewModel
 
     var body: some View {
@@ -23,7 +24,9 @@ struct BookListView: View {
                             ForEach(idleData.bookList) { book in
                                 BookListRowView(book: book)
                                     .padding(.horizontal)
-                                    
+                                    .onTapGesture {
+                                        navigate = true
+                                    }
                             }
                         }
                     }
@@ -34,6 +37,11 @@ struct BookListView: View {
                 case .empty:
                     EmptyView()
                 }
+            }
+            .navigationDestination(
+                isPresented: $navigate
+            ) {
+                TickerDetailsView(viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: .init(getTickerRequestable: .init(coder: JsonCoder(), endpoint: TickerEndpoint(queryItems: [.init(name: "book", value: "btc_mxn")]), session: URLSession(configuration: .default)))))
             }
         }
         .onAppear {

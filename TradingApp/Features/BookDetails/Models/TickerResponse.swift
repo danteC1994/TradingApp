@@ -10,4 +10,9 @@ import Foundation
 struct TickerResponse: Decodable {
     let success: Bool
     let ticker: Ticker?
+    
+    enum CodingKeys: String, CodingKey {
+        case success
+        case ticker = "payload"
+    }
 }

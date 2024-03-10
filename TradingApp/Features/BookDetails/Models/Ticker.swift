@@ -10,7 +10,7 @@ import Foundation
 struct Ticker: Decodable, Equatable {
     let volume: String
     let high: String
-    let priceVariation: String
+    let priceVariation: String?
     let ask: String
     let bid: String
 

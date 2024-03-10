@@ -41,6 +41,7 @@
 		813B692C2B9D00B5000F3FE5 /* TickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B692B2B9D00B5000F3FE5 /* TickerService.swift */; };
 		813B692E2B9D0773000F3FE5 /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B692D2B9D0773000F3FE5 /* Ticker.swift */; };
 		813B69302B9D0A1E000F3FE5 /* TickerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B692F2B9D0A1E000F3FE5 /* TickerResponse.swift */; };
+		813B69352B9E002D000F3FE5 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69342B9E002D000F3FE5 /* RowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		813B692B2B9D00B5000F3FE5 /* TickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerService.swift; sourceTree = "<group>"; };
 		813B692D2B9D0773000F3FE5 /* Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
 		813B692F2B9D0A1E000F3FE5 /* TickerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerResponse.swift; sourceTree = "<group>"; };
+		813B69342B9E002D000F3FE5 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 		813B68D62B99ED8F000F3FE5 /* TradingApp */ = {
 			isa = PBXGroup;
 			children = (
+				813B69332B9E0001000F3FE5 /* UIComponents */,
 				813B68E82B9A5578000F3FE5 /* Networking */,
 				813B68E72B99EFCA000F3FE5 /* Features */,
 				813B68D72B99ED8F000F3FE5 /* App */,
@@ -376,6 +379,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		813B69332B9E0001000F3FE5 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				813B69342B9E002D000F3FE5 /* RowView.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -528,6 +539,7 @@
 				813B68F72B9BE8BD000F3FE5 /* BookList.swift in Sources */,
 				813B69282B9D0083000F3FE5 /* TickerDetailsViewModel.swift in Sources */,
 				813B68F02B9BAC18000F3FE5 /* Endpoint.swift in Sources */,
+				813B69352B9E002D000F3FE5 /* RowView.swift in Sources */,
 				813B68FA2B9BE938000F3FE5 /* Book.swift in Sources */,
 				813B68E62B99EF7A000F3FE5 /* BookListViewModel.swift in Sources */,
 				813B690B2B9C11AC000F3FE5 /* Decoder.swift in Sources */,

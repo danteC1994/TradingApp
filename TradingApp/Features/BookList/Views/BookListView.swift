@@ -9,39 +9,33 @@ import SwiftUI
 import Combine
 
 struct BookListView: View {
-    @State var navigate: Bool = false
-    @ObservedObject var viewModel: BookListViewModel
+    @ObservedObject private(set) var viewModel: BookListViewModel
+    private(set) var selectedBookID: String = ""
 
     var body: some View {
         NavigationStack {
-            ZStack {
-                Color.white
-                    .ignoresSafeArea()
-                switch viewModel.state {
-                case let .idle(idleData):
-                    ScrollView {
-                        LazyVStack {
-                            ForEach(idleData.bookList) { book in
+            switch viewModel.state {
+            case let .idle(idleData):
+                ScrollView {
+                    LazyVStack {
+                        ForEach(idleData.bookList) { book in
+                            NavigationLink {
+                                TickerDetailsView(bookName: book.bookName, viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: .init(getTickerRequestable: .init(coder: JsonCoder(), endpoint: TickerEndpoint(queryItems: [.init(name: "book", value: book.id)]), session: URLSession(configuration: .default))), localizer: BitsoLocalizer()))
+                            } label: {
                                 BookListRowView(book: book)
                                     .padding(.horizontal)
-                                    .onTapGesture {
-                                        navigate = true
-                                    }
                             }
                         }
                     }
-                case .error:
-                    EmptyView()
-                case .loading:
-                    ProgressView()
-                case .empty:
-                    EmptyView()
                 }
-            }
-            .navigationDestination(
-                isPresented: $navigate
-            ) {
-                TickerDetailsView(viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: .init(getTickerRequestable: .init(coder: JsonCoder(), endpoint: TickerEndpoint(queryItems: [.init(name: "book", value: "btc_mxn")]), session: URLSession(configuration: .default))), localizer: BitsoLocalizer()))
+                .padding(.top)
+                .navigationTitle("Bitso")
+            case .error:
+                EmptyView()
+            case .loading:
+                ProgressView()
+            case .empty:
+                EmptyView()
             }
         }
         .onAppear {
@@ -63,6 +57,7 @@ struct BookListView: View {
                     bookList: .init(
                         [
                             .init(
+                                id: "btc_mxn",
                                 bookName: "BTC MXN",
                                 maximumPrice: "500000.00",
                                 values: "200000000.00 - 10.00000000"

@@ -42,6 +42,7 @@ struct BookListRowView: View {
 #Preview {
     BookListRowView(
         book: .init(
+            id: "btc_mxn",
             bookName: "BTC MXN",
             maximumPrice: "500000.00",
             values: "200000000.00 - 10.00000000"

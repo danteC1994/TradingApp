@@ -8,10 +8,7 @@
 import Foundation
 
 struct BookListViewData: Equatable, Identifiable {
-    var id: UUID {
-        return UUID()
-    }
-
+    let id: String
     let bookName: String
     let maximumPrice: String
     let values: String

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TickerDetailsView: View {
+    let bookName: String
     @ObservedObject var viewModel: TickerDetailsViewModel
 
     var body: some View {
@@ -35,7 +36,7 @@ struct TickerDetailsView: View {
                     .padding()
                 }
                 .padding(.horizontal)
-                .padding(.vertical, 100)
+                .padding(.vertical, 60)
             case .error:
                 EmptyView()
             case .loading:
@@ -44,6 +45,8 @@ struct TickerDetailsView: View {
                 EmptyView()
             }
         }
+        .navigationTitle(bookName)
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             Task {
                 await viewModel.requestTicker()
@@ -54,12 +57,14 @@ struct TickerDetailsView: View {
     @ViewBuilder
     private func getRow(title: String, value: String?) -> some View {
         if let value {
-            RowView(title: title, subtitle: value)
+            RowView(title: title, subtitle: value, subtitleColor: .green)
         }
         EmptyView()
     }
 }
 
 #Preview {
-    TickerDetailsView(viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: .init(getTickerRequestable: .init(coder: JsonCoder(), endpoint: TickerEndpoint(queryItems: [.init(name: "book", value: "btc_mxn")]), session: URLSession(configuration: .default))), localizer: BitsoLocalizer()))
+    NavigationStack {
+        TickerDetailsView(bookName: "BTC MXN", viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: .init(getTickerRequestable: .init(coder: JsonCoder(), endpoint: TickerEndpoint(queryItems: [.init(name: "book", value: "btc_mxn")]), session: URLSession(configuration: .default))), localizer: BitsoLocalizer()))
+    }
 }

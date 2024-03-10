@@ -57,6 +57,7 @@ extension BookListViewModel {
                   let valuesFormatted = formatValues(minimumValue: minimumValue, maximumValue: maximumValue)
             else { return nil }
             return .init(
+                id: book.name,
                 bookName: updateBookName(book.name),
                 maximumPrice: localizedPrice,
                 values: valuesFormatted

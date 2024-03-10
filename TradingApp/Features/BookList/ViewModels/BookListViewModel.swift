@@ -10,13 +10,18 @@ import Foundation
 final class BookListViewModel: ObservableObject {
     enum State: Equatable {
         case idle(_ stateData: IdleStateData)
-        case error
+        case error(_ stateData: ErrorStateData)
         case loading
         case empty
     }
 
     struct IdleStateData: Equatable {
         let bookList: [BookListViewData]
+    }
+
+    struct ErrorStateData: Equatable {
+        let errorTitle: String
+        let errorSubtitle: String
     }
 
     let service: BookListService
@@ -30,6 +35,10 @@ final class BookListViewModel: ObservableObject {
         self.localizer = localizer
     }
 
+    func refresh() async {
+        await requestBooks()
+    }
+
     @MainActor
     func requestBooks() async {
         state = .loading
@@ -37,12 +46,19 @@ final class BookListViewModel: ObservableObject {
         switch bookResponse {
         case let .success(bookList):
             guard let books = bookList.books else {
-                state = .empty
+                state = .error(.init(errorTitle: "Try again!", errorSubtitle: "Something went wrong, try reloading"))
                 return
             }
-            self.state = .idle(.init(bookList: mapViewData(from: books) ))
-        case .failure:
-            self.state = .error
+            state = .idle(.init(bookList: mapViewData(from: books) ))
+        case let .failure(error):
+            switch error {
+            case .url:
+                state = .error(.init(errorTitle: "Something went wrong", errorSubtitle: "We are having technical problems"))
+            case .network:
+                state = .error(.init(errorTitle: "Try again!", errorSubtitle: "Something went wrong, try reloading"))
+            case .decoding:
+                state = .error(.init(errorTitle: "Something went wrong", errorSubtitle: "We are having technical problems"))
+            }
         }
     }
 }

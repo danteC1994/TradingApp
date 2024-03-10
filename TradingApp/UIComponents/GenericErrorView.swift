@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct GenericErrorView: View {
+    let title: String
+    let subtitle: String
+    let retryAction: () -> Void
+
     var body: some View {
         VStack {
             ZStack {
@@ -22,7 +26,11 @@ struct GenericErrorView: View {
                             .resizable()
                             .foregroundColor(.red)
                             .frame(width: 100, height: 100)
-                        RowView(title: "Generic error", subtitle: "Description", alignment: .center)
+                        Button(action: {
+                            retryAction()
+                        }, label: {
+                            RowView(title: title, subtitle: subtitle, alignment: .center)
+                        })
                         Spacer()
                     }
                 }
@@ -34,5 +42,5 @@ struct GenericErrorView: View {
 }
 
 #Preview {
-    GenericErrorView()
+    GenericErrorView(title: "Description", subtitle: "Generic error", retryAction: {})
 }

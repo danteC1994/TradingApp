@@ -14,28 +14,34 @@ struct BookListView: View {
 
     var body: some View {
         NavigationStack {
-            switch viewModel.state {
-            case let .idle(idleData):
-                ScrollView {
-                    LazyVStack {
-                        ForEach(idleData.bookList) { book in
-                            NavigationLink {
-                                TickerDetailsView(bookName: book.bookName, viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: .init(getTickerRequestable: .init(coder: JsonCoder(), endpoint: TickerEndpoint(queryItems: [.init(name: "book", value: book.id)]), session: URLSession(configuration: .default))), localizer: BitsoLocalizer()))
-                            } label: {
-                                BookListRowView(book: book)
-                                    .padding(.horizontal)
+            VStack {
+                switch viewModel.state {
+                case let .idle(idleData):
+                    ScrollView {
+                        LazyVStack {
+                            ForEach(idleData.bookList) { book in
+                                NavigationLink {
+                                    TickerDetailsView(bookName: book.bookName, viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: .init(getTickerRequestable: .init(coder: JsonCoder(), endpoint: TickerEndpoint(queryItems: [.init(name: "book", value: book.id)]), session: URLSession(configuration: .default))), localizer: BitsoLocalizer()))
+                                } label: {
+                                    BookListRowView(book: book)
+                                        .padding(.horizontal)
+                                }
                             }
                         }
                     }
+                    .padding(.top)
+                    .navigationTitle("Bitso")
+                case let .error(errorData):
+                    GenericErrorView(
+                        title: errorData.errorTitle,
+                        subtitle: errorData.errorSubtitle,
+                        retryAction: { Task { await viewModel.requestBooks() } }
+                    )
+                case .loading:
+                    ProgressView()
+                case .empty:
+                    EmptyView()
                 }
-                .padding(.top)
-                .navigationTitle("Bitso")
-            case .error:
-                EmptyView()
-            case .loading:
-                ProgressView()
-            case .empty:
-                EmptyView()
             }
         }
         .onAppear {

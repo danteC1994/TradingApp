@@ -218,10 +218,10 @@
 		813B68DA2B99ED8F000F3FE5 /* BookList */ = {
 			isa = PBXGroup;
 			children = (
+				813B68DB2B99ED8F000F3FE5 /* Views */,
+				813B68E42B99EF5E000F3FE5 /* ViewModels */,
 				813B68FD2B9BEC2E000F3FE5 /* Service */,
 				813B68F82B9BE8C9000F3FE5 /* Models */,
-				813B68E42B99EF5E000F3FE5 /* ViewModels */,
-				813B68DB2B99ED8F000F3FE5 /* Views */,
 			);
 			path = BookList;
 			sourceTree = "<group>";
@@ -373,8 +373,8 @@
 			children = (
 				813B69242B9D0057000F3FE5 /* Views */,
 				813B69232B9D0044000F3FE5 /* ViewModels */,
-				813B69222B9D003F000F3FE5 /* Models */,
 				813B69212B9D0034000F3FE5 /* Service */,
+				813B69222B9D003F000F3FE5 /* Models */,
 			);
 			path = BookDetails;
 			sourceTree = "<group>";
@@ -426,9 +426,8 @@
 		813B69382B9E160E000F3FE5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				813B695D2B9F9A5D000F3FE5 /* Localizer */,
 				813B69582B9F8742000F3FE5 /* Throttler */,
-				813B69392B9E161D000F3FE5 /* Localizer.swift */,
-				813B693B2B9E1633000F3FE5 /* BitsoLocalizer.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -515,6 +514,15 @@
 				813B695B2B9F877A000F3FE5 /* Throttler.swift */,
 			);
 			path = Throttler;
+			sourceTree = "<group>";
+		};
+		813B695D2B9F9A5D000F3FE5 /* Localizer */ = {
+			isa = PBXGroup;
+			children = (
+				813B69392B9E161D000F3FE5 /* Localizer.swift */,
+				813B693B2B9E1633000F3FE5 /* BitsoLocalizer.swift */,
+			);
+			path = Localizer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

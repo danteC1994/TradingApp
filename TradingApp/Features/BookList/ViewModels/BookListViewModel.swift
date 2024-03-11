@@ -77,7 +77,7 @@ extension BookListViewModel {
     }
     
     private func scheduleThrottler() {
-        throttlerCancellable = throttler.throttle(every: 30, on: .main, in: .default) {
+        throttlerCancellable = throttler.throttle(every: 10, on: .main, in: .default) {
             await self.requestBooks(showLoading: false)
         }
     }

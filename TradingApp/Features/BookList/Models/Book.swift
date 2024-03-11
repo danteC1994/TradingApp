@@ -8,10 +8,9 @@
 import Foundation
 
 struct Book: Decodable, Identifiable, Equatable {
-    var id: UUID {
-        return UUID()
+    var id: String {
+        name
     }
-
     let name: String
     let maximumPrice: String
     let maximumValue: String

@@ -9,7 +9,7 @@ import Foundation
 
 /// This struct is meant to implement coding data behaviors, such as encoding and decoding.
 struct JsonCoder: Decoder {
-    var decoder = JSONDecoder()
+    private var decoder = JSONDecoder()
     
     /// Decodes a generic type from specific data.
     func decode<T: Decodable>(data: Data, dataType: T.Type) -> T? {

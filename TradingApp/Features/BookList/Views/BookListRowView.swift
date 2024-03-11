@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct BookListRowView: View {
-    let book: BookListViewData
+    private let book: BookListViewData
+
+    init(book: BookListViewData) {
+        self.book = book
+    }
+
     var body: some View {
         ZStack {
             Rectangle()

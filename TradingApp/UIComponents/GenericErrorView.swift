@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct GenericErrorView: View {
-    let title: String
-    let subtitle: String
-    let retryAction: () -> Void
+    private let title: String
+    private let subtitle: String
+    private let retryAction: () -> Void
+
+    init(title: String, subtitle: String, retryAction: @escaping () -> Void) {
+        self.title = title
+        self.subtitle = subtitle
+        self.retryAction = retryAction
+    }
 
     var body: some View {
         VStack {

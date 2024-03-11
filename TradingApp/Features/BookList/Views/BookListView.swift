@@ -19,7 +19,7 @@ struct BookListView: View {
                 case let .idle(idleData):
                     ScrollView {
                         LazyVStack {
-                            ForEach(idleData.bookList) { book in
+                            ForEach(idleData.bookList, id: \.id) { book in
                                 NavigationLink {
                                     TickerDetailsView(bookName: book.bookName, viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: .init(getTickerRequestable: .init(coder: JsonCoder(), endpoint: TickerEndpoint(queryItems: [.init(name: "book", value: book.id)]), session: URLSession(configuration: .default))), localizer: BitsoLocalizer()))
                                 } label: {
@@ -46,10 +46,11 @@ struct BookListView: View {
             .onDisappear {
                 viewModel.removeThrottler()
             }
-            .onAppear {
-                Task {
-                    await viewModel.requestBooks()
-                }
+
+        }
+        .onAppear {
+            Task {
+                await viewModel.requestBooks()
             }
         }
         .refreshable {

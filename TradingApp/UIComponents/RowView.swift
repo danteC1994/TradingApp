@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct RowView: View {
-    let title: String
-    let subtitle: String
-    let subtitleColor: Color
-    let alignment: Alignment
+    private let title: String
+    private let subtitle: String
+    private let subtitleColor: Color
+    private let alignment: Alignment
 
     init(title: String, subtitle: String, subtitleColor: Color = .secondary, alignment: Alignment = .leading) {
         self.title = title

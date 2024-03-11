@@ -8,7 +8,7 @@
 import Foundation
 
 struct BookList: Decodable, Equatable {
-    let books: [Book]?
+    var books: [Book]?
     let success: Bool
     let error: BookAPIError?
 

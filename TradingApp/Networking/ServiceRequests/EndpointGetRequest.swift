@@ -8,9 +8,9 @@
 import Foundation
 
 struct EndpointGetRequest<T> where T: Decodable {
-    let decoder: Decoder
-    let endpoint: Endpoint
-    let session: Session
+    private let decoder: Decoder
+    private let endpoint: Endpoint
+    private let session: Session
 
     init(coder: Decoder, endpoint: Endpoint, session: Session) {
         self.decoder = coder
@@ -25,7 +25,6 @@ struct EndpointGetRequest<T> where T: Decodable {
         do {
             (data, _) = try await session.data(from: url)
         } catch {
-            assertionFailure("Error while requesting \(endpoint.endpointPath)")
             return .failure(APIError.network)
         }
 

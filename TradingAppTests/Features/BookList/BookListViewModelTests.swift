@@ -14,9 +14,9 @@ final class BookListViewModelTests: XCTestCase {
 
     override func setUp() {
         endpointRequester = EndpointGetRequest(
-            coder: JsonCoder(),
-            endpoint: BookListEndpoint(),
-            session: SessionMock()
+            coder: CoderMock(),
+            endpoint: EndpointMock(),
+            session: SessionSuccessMock()
         )
         let service = BookListService(getBooksRequestable: endpointRequester)
         sut = BookListViewModel(state: .loading, service: service, localizer: BitsoLocalizer())
@@ -35,9 +35,10 @@ final class BookListViewModelTests: XCTestCase {
                 .init(
                     bookList: [
                         .init(
+                            id: "btc_mxn",
                             bookName: "BTC MXN",
-                            maximumPrice: "500000.00",
-                            values: "200000000.00 - 10.00000000"
+                            maximumPrice: "$ 500.000,00",
+                            values: "200.000.000 - 10"
                         )
                     ]
                 )
@@ -45,11 +46,64 @@ final class BookListViewModelTests: XCTestCase {
         )
     }
 
-    func testRequestBooks_withErrorResponse() async {
+    func testRequestBooks_withURLErrorResponse() async {
+        endpointRequester = EndpointGetRequest(
+            coder: CoderMock(),
+            endpoint: EndpointErrorMock(),
+            session: SessionSuccessMock()
+        )
         let service = BookListService(getBooksRequestable: endpointRequester)
         sut = BookListViewModel(state: .loading, service: service, localizer: BitsoLocalizer())
         await sut.requestBooks()
-        XCTAssertEqual(sut.state, .error)
+        XCTAssertEqual(
+            sut.state,
+            .error(
+                .init(
+                    errorTitle: "Something went wrong",
+                    errorSubtitle: "We are having technical problems"
+                )
+            )
+        )
+    }
+    
+    func testRequestBooks_withNetworkErrorResponse() async {
+        endpointRequester = EndpointGetRequest(
+            coder: CoderMock(),
+            endpoint: EndpointMock(),
+            session: SessionErrorMock()
+        )
+        let service = BookListService(getBooksRequestable: endpointRequester)
+        sut = BookListViewModel(state: .loading, service: service, localizer: BitsoLocalizer())
+        await sut.requestBooks()
+        XCTAssertEqual(
+            sut.state,
+            .error(
+                .init(
+                    errorTitle: "Try again!",
+                    errorSubtitle: "Something went wrong, try reloading"
+                )
+            )
+        )
+    }
+    
+    func testRequestBooks_withDecodingErrorResponse() async {
+        endpointRequester = EndpointGetRequest(
+            coder: CoderErrorMock(),
+            endpoint: EndpointMock(),
+            session: SessionSuccessMock()
+        )
+        let service = BookListService(getBooksRequestable: endpointRequester)
+        sut = BookListViewModel(state: .loading, service: service, localizer: BitsoLocalizer())
+        await sut.requestBooks()
+        XCTAssertEqual(
+            sut.state,
+            .error(
+                .init(
+                    errorTitle: "Something went wrong",
+                    errorSubtitle: "We are having technical problems"
+                )
+            )
+        )
     }
 
     func testMapViewData() {

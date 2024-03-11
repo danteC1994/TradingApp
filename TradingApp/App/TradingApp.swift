@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct TradingAppApp: App {
+struct TradingApp: App {
     var body: some Scene {
         WindowGroup {
             BookListView(
@@ -34,7 +34,8 @@ struct TradingAppApp: App {
                             session: URLSession(configuration: .default)
                         )
                     ),
-                    localizer: BitsoLocalizer()
+                    localizer: BitsoLocalizer(),
+                    throttler: Throttler()
                 )
             )
         }

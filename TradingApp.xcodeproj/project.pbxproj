@@ -10,7 +10,7 @@
 		813B68B92B99E14E000F3FE5 /* TradingAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68B82B99E14E000F3FE5 /* TradingAppTests.swift */; };
 		813B68C32B99E14E000F3FE5 /* TradingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68C22B99E14E000F3FE5 /* TradingAppUITests.swift */; };
 		813B68C52B99E14E000F3FE5 /* TradingAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68C42B99E14E000F3FE5 /* TradingAppUITestsLaunchTests.swift */; };
-		813B68DD2B99ED8F000F3FE5 /* TradingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68D82B99ED8F000F3FE5 /* TradingAppApp.swift */; };
+		813B68DD2B99ED8F000F3FE5 /* TradingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68D82B99ED8F000F3FE5 /* TradingApp.swift */; };
 		813B68DE2B99ED8F000F3FE5 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B68DC2B99ED8F000F3FE5 /* BookListView.swift */; };
 		813B68E12B99EE64000F3FE5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813B68E02B99EE64000F3FE5 /* Preview Assets.xcassets */; };
 		813B68E32B99EEAF000F3FE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813B68E22B99EEAF000F3FE5 /* Assets.xcassets */; };
@@ -30,8 +30,8 @@
 		813B690B2B9C11AC000F3FE5 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B690A2B9C11AC000F3FE5 /* Decoder.swift */; };
 		813B690F2B9C141B000F3FE5 /* BookListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B690E2B9C141B000F3FE5 /* BookListRowView.swift */; };
 		813B69132B9C9A03000F3FE5 /* BookListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69122B9C9A03000F3FE5 /* BookListViewModelTests.swift */; };
-		813B69162B9CA951000F3FE5 /* BookListSessionSuccessMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69152B9CA951000F3FE5 /* BookListSessionSuccessMock.swift */; };
-		813B69182B9CA98A000F3FE5 /* BookListCoderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69172B9CA98A000F3FE5 /* BookListCoderMock.swift */; };
+		813B69162B9CA951000F3FE5 /* SessionMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69152B9CA951000F3FE5 /* SessionMocks.swift */; };
+		813B69182B9CA98A000F3FE5 /* CoderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69172B9CA98A000F3FE5 /* CoderMock.swift */; };
 		813B691A2B9CAD0D000F3FE5 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69192B9CAD0D000F3FE5 /* Session.swift */; };
 		813B691C2B9CAD2A000F3FE5 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B691B2B9CAD2A000F3FE5 /* URL+Extensions.swift */; };
 		813B691F2B9CF676000F3FE5 /* BookListViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B691E2B9CF676000F3FE5 /* BookListViewData.swift */; };
@@ -49,10 +49,13 @@
 		813B69412B9E2453000F3FE5 /* GenericErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69402B9E2453000F3FE5 /* GenericErrorView.swift */; };
 		813B69442B9E6F11000F3FE5 /* JSONCoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69432B9E6F11000F3FE5 /* JSONCoderTests.swift */; };
 		813B69482B9E723E000F3FE5 /* EndpointGetRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69472B9E723E000F3FE5 /* EndpointGetRequestTests.swift */; };
-		813B694A2B9E8733000F3FE5 /* EndpointMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69492B9E8733000F3FE5 /* EndpointMock.swift */; };
+		813B694A2B9E8733000F3FE5 /* EndpointMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69492B9E8733000F3FE5 /* EndpointMocks.swift */; };
 		813B694D2B9E92DD000F3FE5 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B694C2B9E92DD000F3FE5 /* EndpointTests.swift */; };
 		813B69502B9E99B3000F3FE5 /* BitsoAPIURLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B694F2B9E99B3000F3FE5 /* BitsoAPIURLTests.swift */; };
 		813B69532B9E9B63000F3FE5 /* TickerDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69522B9E9B63000F3FE5 /* TickerDetailsViewModelTests.swift */; };
+		813B69572B9F45F5000F3FE5 /* ThrottlerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69562B9F45F5000F3FE5 /* ThrottlerMock.swift */; };
+		813B695A2B9F8755000F3FE5 /* Throttable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69592B9F8755000F3FE5 /* Throttable.swift */; };
+		813B695C2B9F877A000F3FE5 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B695B2B9F877A000F3FE5 /* Throttler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +82,7 @@
 		813B68BE2B99E14E000F3FE5 /* TradingAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TradingAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		813B68C22B99E14E000F3FE5 /* TradingAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingAppUITests.swift; sourceTree = "<group>"; };
 		813B68C42B99E14E000F3FE5 /* TradingAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		813B68D82B99ED8F000F3FE5 /* TradingAppApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradingAppApp.swift; sourceTree = "<group>"; };
+		813B68D82B99ED8F000F3FE5 /* TradingApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TradingApp.swift; sourceTree = "<group>"; };
 		813B68DC2B99ED8F000F3FE5 /* BookListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
 		813B68E02B99EE64000F3FE5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		813B68E22B99EEAF000F3FE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,8 +102,8 @@
 		813B690A2B9C11AC000F3FE5 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
 		813B690E2B9C141B000F3FE5 /* BookListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRowView.swift; sourceTree = "<group>"; };
 		813B69122B9C9A03000F3FE5 /* BookListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewModelTests.swift; sourceTree = "<group>"; };
-		813B69152B9CA951000F3FE5 /* BookListSessionSuccessMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListSessionSuccessMock.swift; sourceTree = "<group>"; };
-		813B69172B9CA98A000F3FE5 /* BookListCoderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListCoderMock.swift; sourceTree = "<group>"; };
+		813B69152B9CA951000F3FE5 /* SessionMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMocks.swift; sourceTree = "<group>"; };
+		813B69172B9CA98A000F3FE5 /* CoderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderMock.swift; sourceTree = "<group>"; };
 		813B69192B9CAD0D000F3FE5 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		813B691B2B9CAD2A000F3FE5 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		813B691E2B9CF676000F3FE5 /* BookListViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewData.swift; sourceTree = "<group>"; };
@@ -118,10 +121,13 @@
 		813B69402B9E2453000F3FE5 /* GenericErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericErrorView.swift; sourceTree = "<group>"; };
 		813B69432B9E6F11000F3FE5 /* JSONCoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCoderTests.swift; sourceTree = "<group>"; };
 		813B69472B9E723E000F3FE5 /* EndpointGetRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointGetRequestTests.swift; sourceTree = "<group>"; };
-		813B69492B9E8733000F3FE5 /* EndpointMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointMock.swift; sourceTree = "<group>"; };
+		813B69492B9E8733000F3FE5 /* EndpointMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointMocks.swift; sourceTree = "<group>"; };
 		813B694C2B9E92DD000F3FE5 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 		813B694F2B9E99B3000F3FE5 /* BitsoAPIURLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitsoAPIURLTests.swift; sourceTree = "<group>"; };
 		813B69522B9E9B63000F3FE5 /* TickerDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		813B69562B9F45F5000F3FE5 /* ThrottlerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrottlerMock.swift; sourceTree = "<group>"; };
+		813B69592B9F8755000F3FE5 /* Throttable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttable.swift; sourceTree = "<group>"; };
+		813B695B2B9F877A000F3FE5 /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,7 +210,7 @@
 		813B68D72B99ED8F000F3FE5 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				813B68D82B99ED8F000F3FE5 /* TradingAppApp.swift */,
+				813B68D82B99ED8F000F3FE5 /* TradingApp.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -420,6 +426,7 @@
 		813B69382B9E160E000F3FE5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				813B69582B9F8742000F3FE5 /* Throttler */,
 				813B69392B9E161D000F3FE5 /* Localizer.swift */,
 				813B693B2B9E1633000F3FE5 /* BitsoLocalizer.swift */,
 			);
@@ -445,9 +452,10 @@
 		813B69452B9E71B5000F3FE5 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				813B69152B9CA951000F3FE5 /* BookListSessionSuccessMock.swift */,
-				813B69172B9CA98A000F3FE5 /* BookListCoderMock.swift */,
-				813B69492B9E8733000F3FE5 /* EndpointMock.swift */,
+				813B69152B9CA951000F3FE5 /* SessionMocks.swift */,
+				813B69172B9CA98A000F3FE5 /* CoderMock.swift */,
+				813B69492B9E8733000F3FE5 /* EndpointMocks.swift */,
+				813B69562B9F45F5000F3FE5 /* ThrottlerMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -498,6 +506,15 @@
 				813B69522B9E9B63000F3FE5 /* TickerDetailsViewModelTests.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		813B69582B9F8742000F3FE5 /* Throttler */ = {
+			isa = PBXGroup;
+			children = (
+				813B69592B9F8755000F3FE5 /* Throttable.swift */,
+				813B695B2B9F877A000F3FE5 /* Throttler.swift */,
+			);
+			path = Throttler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -634,8 +651,9 @@
 				813B690F2B9C141B000F3FE5 /* BookListRowView.swift in Sources */,
 				813B69262B9D0076000F3FE5 /* TickerDetailsView.swift in Sources */,
 				813B691F2B9CF676000F3FE5 /* BookListViewData.swift in Sources */,
+				813B695A2B9F8755000F3FE5 /* Throttable.swift in Sources */,
 				813B68F42B9BDE66000F3FE5 /* Endpoint+Extensions.swift in Sources */,
-				813B68DD2B99ED8F000F3FE5 /* TradingAppApp.swift in Sources */,
+				813B68DD2B99ED8F000F3FE5 /* TradingApp.swift in Sources */,
 				813B692C2B9D00B5000F3FE5 /* TickerService.swift in Sources */,
 				813B693A2B9E161D000F3FE5 /* Localizer.swift in Sources */,
 				813B68EA2B9A55E7000F3FE5 /* APIError.swift in Sources */,
@@ -658,6 +676,7 @@
 				813B69352B9E002D000F3FE5 /* RowView.swift in Sources */,
 				813B68FA2B9BE938000F3FE5 /* Book.swift in Sources */,
 				813B68E62B99EF7A000F3FE5 /* BookListViewModel.swift in Sources */,
+				813B695C2B9F877A000F3FE5 /* Throttler.swift in Sources */,
 				813B690B2B9C11AC000F3FE5 /* Decoder.swift in Sources */,
 				813B68FC2B9BEA5F000F3FE5 /* BookAPIError.swift in Sources */,
 				813B69372B9E15D8000F3FE5 /* TickerDetailsViewData.swift in Sources */,
@@ -668,15 +687,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				813B69572B9F45F5000F3FE5 /* ThrottlerMock.swift in Sources */,
 				813B69502B9E99B3000F3FE5 /* BitsoAPIURLTests.swift in Sources */,
-				813B694A2B9E8733000F3FE5 /* EndpointMock.swift in Sources */,
+				813B694A2B9E8733000F3FE5 /* EndpointMocks.swift in Sources */,
 				813B68B92B99E14E000F3FE5 /* TradingAppTests.swift in Sources */,
 				813B69482B9E723E000F3FE5 /* EndpointGetRequestTests.swift in Sources */,
-				813B69182B9CA98A000F3FE5 /* BookListCoderMock.swift in Sources */,
+				813B69182B9CA98A000F3FE5 /* CoderMock.swift in Sources */,
 				813B694D2B9E92DD000F3FE5 /* EndpointTests.swift in Sources */,
 				813B693F2B9E1C47000F3FE5 /* BitsoLocalizerTests.swift in Sources */,
 				813B69132B9C9A03000F3FE5 /* BookListViewModelTests.swift in Sources */,
-				813B69162B9CA951000F3FE5 /* BookListSessionSuccessMock.swift in Sources */,
+				813B69162B9CA951000F3FE5 /* SessionMocks.swift in Sources */,
 				813B69532B9E9B63000F3FE5 /* TickerDetailsViewModelTests.swift in Sources */,
 				813B69442B9E6F11000F3FE5 /* JSONCoderTests.swift in Sources */,
 			);

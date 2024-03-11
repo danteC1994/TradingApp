@@ -43,10 +43,13 @@ struct BookListView: View {
                     EmptyView()
                 }
             }
-        }
-        .onAppear {
-            Task {
-                await viewModel.requestBooks()
+            .onDisappear {
+                viewModel.removeThrottler()
+            }
+            .onAppear {
+                Task {
+                    await viewModel.requestBooks()
+                }
             }
         }
         .refreshable {
@@ -79,7 +82,7 @@ struct BookListView: View {
                     session: URLSession(configuration: .default)
                 )
             ),
-            localizer: BitsoLocalizer()
+            localizer: BitsoLocalizer(), throttler: Throttler()
         )
     )
 }

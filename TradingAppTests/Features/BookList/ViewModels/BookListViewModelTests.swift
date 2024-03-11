@@ -19,7 +19,7 @@ final class BookListViewModelTests: XCTestCase {
             session: BookListSessionSuccessMock()
         )
         let service = BookListService(getBooksRequestable: endpointRequester)
-        sut = BookListViewModel(state: .loading, service: service, localizer: BitsoLocalizer())
+        sut = BookListViewModel(state: .loading, service: service, localizer: BitsoLocalizer(), throttler: ThrottlerMock())
     }
 
     override func tearDown() {
@@ -46,6 +46,47 @@ final class BookListViewModelTests: XCTestCase {
         )
     }
 
+    func testRequestBooks_withSuccessResponse_schedulesThrottler() async {
+        await sut.requestBooks()
+        XCTAssertNotNil(sut.throttlerCancellable) 
+    }
+
+    func testRequestBooksTwice_withSuccessResponse_DoesNotscheduleThrottlerTwice() async {
+        await sut.requestBooks()
+        XCTAssertNotNil(sut.throttlerCancellable)
+        await sut.requestBooks()
+        XCTAssertNotNil(sut.throttlerCancellable)
+    }
+
+    func testRequestBooks_withErrorResponse_RemovesThrottler() async {
+        let expectation = expectation(description: "Throttler was removed successfully")
+        endpointRequester = EndpointGetRequest(
+            coder: BookListCoderMock(),
+            endpoint: EndpointMock(),
+            session: BookListSessionSuccessAndErrorWhenRetriesMock()
+        )
+        let service = BookListService(getBooksRequestable: endpointRequester)
+        let throttler = ThrottlerMock(action: { Task {
+            await self.sut.requestBooks()
+            XCTAssertNil(self.sut.throttlerCancellable)
+            expectation.fulfill()
+        } })
+        sut = BookListViewModel(state: .loading, service: service, localizer: BitsoLocalizer(), throttler: throttler)
+        
+        await sut.requestBooks()
+        XCTAssertNotNil(sut.throttlerCancellable)
+        
+        await fulfillment(of: [expectation], timeout: 2)
+    }
+
+    func testremoveThrottler_RemovesThrottler() async {
+        await sut.requestBooks()
+        XCTAssertNotNil(sut.throttlerCancellable)
+        sut.removeThrottler()
+        XCTAssertNil(sut.throttlerCancellable)
+        
+    }
+
     func testRequestBooks_withURLErrorResponse() async {
         endpointRequester = EndpointGetRequest(
             coder: BookListCoderMock(),
@@ -53,7 +94,7 @@ final class BookListViewModelTests: XCTestCase {
             session: BookListSessionSuccessMock()
         )
         let service = BookListService(getBooksRequestable: endpointRequester)
-        sut = BookListViewModel(state: .loading, service: service, localizer: BitsoLocalizer())
+        sut = BookListViewModel(state: .loading, service: service, localizer: BitsoLocalizer(), throttler: ThrottlerMock())
         await sut.requestBooks()
         XCTAssertEqual(
             sut.state,
@@ -73,7 +114,7 @@ final class BookListViewModelTests: XCTestCase {
             session: SessionErrorMock()
         )
         let service = BookListService(getBooksRequestable: endpointRequester)
-        sut = BookListViewModel(state: .loading, service: service, localizer: BitsoLocalizer())
+        sut = BookListViewModel(state: .loading, service: service, localizer: BitsoLocalizer(), throttler: ThrottlerMock())
         await sut.requestBooks()
         XCTAssertEqual(
             sut.state,
@@ -93,7 +134,7 @@ final class BookListViewModelTests: XCTestCase {
             session: BookListSessionSuccessMock()
         )
         let service = BookListService(getBooksRequestable: endpointRequester)
-        sut = BookListViewModel(state: .loading, service: service, localizer: BitsoLocalizer())
+        sut = BookListViewModel(state: .loading, service: service, localizer: BitsoLocalizer(), throttler: ThrottlerMock())
         await sut.requestBooks()
         XCTAssertEqual(
             sut.state,

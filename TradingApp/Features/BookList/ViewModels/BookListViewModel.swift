@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 final class BookListViewModel: ObservableObject {
     enum State: Equatable {
@@ -24,37 +25,30 @@ final class BookListViewModel: ObservableObject {
         let errorSubtitle: String
     }
 
-    let service: BookListService
-    let localizer: Localizer
+    private(set) var throttlerCancellable: AnyCancellable?
+
+    private let service: BookListService
+    private let localizer: Localizer
+    private let throttler: Throttable
 
     @Published private(set) var state: State
 
-    init(state: State, service: BookListService, localizer: Localizer) {
+    init(state: State, service: BookListService, localizer: Localizer, throttler: Throttable) {
         self.state = state
         self.service = service
         self.localizer = localizer
+        self.throttler = throttler
     }
 
     @MainActor
-    func requestBooks() async {
-        state = .loading
+    func requestBooks(showLoading: Bool = true) async {
+        if showLoading { state = .loading }
         let bookResponse = await service.getBooksRequestable.asyncGetrequest()
         switch bookResponse {
         case let .success(bookList):
-            guard let books = bookList.books else {
-                state = .error(.init(errorTitle: "Try again!", errorSubtitle: "Something went wrong, try reloading"))
-                return
-            }
-            state = .idle(.init(bookList: mapViewData(from: books) ))
+            handleBookListSuccessResult(bookList: bookList)
         case let .failure(error):
-            switch error {
-            case .url:
-                state = .error(.init(errorTitle: "Something went wrong", errorSubtitle: "We are having technical problems"))
-            case .network:
-                state = .error(.init(errorTitle: "Try again!", errorSubtitle: "Something went wrong, try reloading"))
-            case .decoding:
-                state = .error(.init(errorTitle: "Something went wrong", errorSubtitle: "We are having technical problems"))
-            }
+            handleBookListErrorResult(error: error)
         }
     }
 }
@@ -77,6 +71,17 @@ extension BookListViewModel {
         }
     }
 
+    func removeThrottler() {
+        throttlerCancellable?.cancel()
+        throttlerCancellable = nil
+    }
+    
+    private func scheduleThrottler() {
+        throttlerCancellable = throttler.throttle(every: 30, on: .main, in: .default) {
+            await self.requestBooks(showLoading: false)
+        }
+    }
+
     func formatValues(minimumValue: Double, maximumValue: Double, locale: Locale = .current) -> String? {
         guard let minimumValueFormated = localizer.decimalLocalized(minimumValue, locale: .current),
               let maximumValueFormated = localizer.decimalLocalized(maximumValue, locale: .current)
@@ -87,5 +92,29 @@ extension BookListViewModel {
 
     private func updateBookName(_ name: String) -> String {
         name.replacingOccurrences(of: "_", with: " ").uppercased()
+    }
+
+    private func handleBookListSuccessResult(bookList: BookList) {
+        guard let books = bookList.books else {
+            removeThrottler()
+            state = .error(.init(errorTitle: "Try again!", errorSubtitle: "Something went wrong, try reloading"))
+            return
+        }
+        if throttlerCancellable == nil {
+            scheduleThrottler()
+        }
+        state = .idle(.init(bookList: mapViewData(from: books) ))
+    }
+
+    private func handleBookListErrorResult(error: APIError) {
+        removeThrottler()
+        switch error {
+        case .url:
+            state = .error(.init(errorTitle: "Something went wrong", errorSubtitle: "We are having technical problems"))
+        case .network:
+            state = .error(.init(errorTitle: "Try again!", errorSubtitle: "Something went wrong, try reloading"))
+        case .decoding:
+            state = .error(.init(errorTitle: "Something went wrong", errorSubtitle: "We are having technical problems"))
+        }
     }
 }

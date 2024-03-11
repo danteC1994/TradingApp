@@ -13,9 +13,9 @@ final class EndpointGetRequestTests: XCTestCase {
 
     override func setUp() {
         sut = EndpointGetRequest(
-            coder: CoderMock(),
+            coder: BookListCoderMock(),
             endpoint: EndpointMock(),
-            session: SessionSuccessMock()
+            session: BookListSessionSuccessMock()
         )
     }
 
@@ -37,9 +37,9 @@ final class EndpointGetRequestTests: XCTestCase {
     
     func testGetRequest_withEndpointURLError() async {
         sut = EndpointGetRequest(
-            coder: CoderMock(),
+            coder: BookListCoderMock(),
             endpoint: EndpointErrorMock(),
-            session: SessionSuccessMock()
+            session: BookListSessionSuccessMock()
         )
 
         let response = await sut.asyncGetrequest()
@@ -55,7 +55,7 @@ final class EndpointGetRequestTests: XCTestCase {
 
     func testGetRequest_withNetworkError() async {
         sut = EndpointGetRequest(
-            coder: CoderMock(),
+            coder: BookListCoderMock(),
             endpoint: EndpointMock(),
             session: SessionErrorMock()
         )
@@ -75,7 +75,7 @@ final class EndpointGetRequestTests: XCTestCase {
         sut = EndpointGetRequest(
             coder: CoderErrorMock(),
             endpoint: EndpointMock(),
-            session: SessionSuccessMock()
+            session: BookListSessionSuccessMock()
         )
 
         let response = await sut.asyncGetrequest()

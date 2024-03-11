@@ -14,9 +14,9 @@ final class BookListViewModelTests: XCTestCase {
 
     override func setUp() {
         endpointRequester = EndpointGetRequest(
-            coder: CoderMock(),
+            coder: BookListCoderMock(),
             endpoint: EndpointMock(),
-            session: SessionSuccessMock()
+            session: BookListSessionSuccessMock()
         )
         let service = BookListService(getBooksRequestable: endpointRequester)
         sut = BookListViewModel(state: .loading, service: service, localizer: BitsoLocalizer())
@@ -48,9 +48,9 @@ final class BookListViewModelTests: XCTestCase {
 
     func testRequestBooks_withURLErrorResponse() async {
         endpointRequester = EndpointGetRequest(
-            coder: CoderMock(),
+            coder: BookListCoderMock(),
             endpoint: EndpointErrorMock(),
-            session: SessionSuccessMock()
+            session: BookListSessionSuccessMock()
         )
         let service = BookListService(getBooksRequestable: endpointRequester)
         sut = BookListViewModel(state: .loading, service: service, localizer: BitsoLocalizer())
@@ -68,7 +68,7 @@ final class BookListViewModelTests: XCTestCase {
     
     func testRequestBooks_withNetworkErrorResponse() async {
         endpointRequester = EndpointGetRequest(
-            coder: CoderMock(),
+            coder: BookListCoderMock(),
             endpoint: EndpointMock(),
             session: SessionErrorMock()
         )
@@ -90,7 +90,7 @@ final class BookListViewModelTests: XCTestCase {
         endpointRequester = EndpointGetRequest(
             coder: CoderErrorMock(),
             endpoint: EndpointMock(),
-            session: SessionSuccessMock()
+            session: BookListSessionSuccessMock()
         )
         let service = BookListService(getBooksRequestable: endpointRequester)
         sut = BookListViewModel(state: .loading, service: service, localizer: BitsoLocalizer())

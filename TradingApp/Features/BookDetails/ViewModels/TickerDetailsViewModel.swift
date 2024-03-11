@@ -70,11 +70,6 @@ extension TickerDetailsViewModel {
             bid: ticker.bid.localizedDecimal(localizer: localizer)
         )
     }
-    
-    func toDecimal(_ num: String) -> String? {
-        guard let num = Double(num) else { return nil }
-        return localizer.decimalLocalized(num, locale: .current)
-    }
 }
 
 private extension String {

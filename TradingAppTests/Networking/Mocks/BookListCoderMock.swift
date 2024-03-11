@@ -8,7 +8,7 @@
 @testable import TradingApp
 import Foundation
 
-struct CoderMock: Decoder {
+struct BookListCoderMock: Decoder {
     func decode<T>(data: Data, dataType: T.Type) -> T? where T : Decodable {
         return BookList(
             books: [
@@ -21,6 +21,21 @@ struct CoderMock: Decoder {
             ],
             success: true,
             error: nil
+        ) as? T
+    }
+}
+
+struct TickerDetailsCoderMock: Decoder {
+    func decode<T>(data: Data, dataType: T.Type) -> T? where T : Decodable {
+        return TickerResponse(
+            success: true,
+            ticker: .init(
+                volume: "3925281035",
+                high: "1163520",
+                priceVariation: "4410",
+                ask: "1152580",
+                bid: "1150310"
+            )
         ) as? T
     }
 }

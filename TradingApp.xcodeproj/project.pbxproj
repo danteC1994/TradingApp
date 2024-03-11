@@ -30,8 +30,8 @@
 		813B690B2B9C11AC000F3FE5 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B690A2B9C11AC000F3FE5 /* Decoder.swift */; };
 		813B690F2B9C141B000F3FE5 /* BookListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B690E2B9C141B000F3FE5 /* BookListRowView.swift */; };
 		813B69132B9C9A03000F3FE5 /* BookListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69122B9C9A03000F3FE5 /* BookListViewModelTests.swift */; };
-		813B69162B9CA951000F3FE5 /* SessionSuccessMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69152B9CA951000F3FE5 /* SessionSuccessMock.swift */; };
-		813B69182B9CA98A000F3FE5 /* CoderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69172B9CA98A000F3FE5 /* CoderMock.swift */; };
+		813B69162B9CA951000F3FE5 /* BookListSessionSuccessMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69152B9CA951000F3FE5 /* BookListSessionSuccessMock.swift */; };
+		813B69182B9CA98A000F3FE5 /* BookListCoderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69172B9CA98A000F3FE5 /* BookListCoderMock.swift */; };
 		813B691A2B9CAD0D000F3FE5 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69192B9CAD0D000F3FE5 /* Session.swift */; };
 		813B691C2B9CAD2A000F3FE5 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B691B2B9CAD2A000F3FE5 /* URL+Extensions.swift */; };
 		813B691F2B9CF676000F3FE5 /* BookListViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B691E2B9CF676000F3FE5 /* BookListViewData.swift */; };
@@ -52,6 +52,7 @@
 		813B694A2B9E8733000F3FE5 /* EndpointMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69492B9E8733000F3FE5 /* EndpointMock.swift */; };
 		813B694D2B9E92DD000F3FE5 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B694C2B9E92DD000F3FE5 /* EndpointTests.swift */; };
 		813B69502B9E99B3000F3FE5 /* BitsoAPIURLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B694F2B9E99B3000F3FE5 /* BitsoAPIURLTests.swift */; };
+		813B69532B9E9B63000F3FE5 /* TickerDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69522B9E9B63000F3FE5 /* TickerDetailsViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,8 +99,8 @@
 		813B690A2B9C11AC000F3FE5 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
 		813B690E2B9C141B000F3FE5 /* BookListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRowView.swift; sourceTree = "<group>"; };
 		813B69122B9C9A03000F3FE5 /* BookListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewModelTests.swift; sourceTree = "<group>"; };
-		813B69152B9CA951000F3FE5 /* SessionSuccessMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSuccessMock.swift; sourceTree = "<group>"; };
-		813B69172B9CA98A000F3FE5 /* CoderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderMock.swift; sourceTree = "<group>"; };
+		813B69152B9CA951000F3FE5 /* BookListSessionSuccessMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListSessionSuccessMock.swift; sourceTree = "<group>"; };
+		813B69172B9CA98A000F3FE5 /* BookListCoderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListCoderMock.swift; sourceTree = "<group>"; };
 		813B69192B9CAD0D000F3FE5 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		813B691B2B9CAD2A000F3FE5 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		813B691E2B9CF676000F3FE5 /* BookListViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewData.swift; sourceTree = "<group>"; };
@@ -120,6 +121,7 @@
 		813B69492B9E8733000F3FE5 /* EndpointMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointMock.swift; sourceTree = "<group>"; };
 		813B694C2B9E92DD000F3FE5 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 		813B694F2B9E99B3000F3FE5 /* BitsoAPIURLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitsoAPIURLTests.swift; sourceTree = "<group>"; };
+		813B69522B9E9B63000F3FE5 /* TickerDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerDetailsViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +328,7 @@
 			children = (
 				813B693D2B9E1C36000F3FE5 /* Common */,
 				813B69112B9C99EC000F3FE5 /* BookList */,
+				813B69512B9E9B18000F3FE5 /* BookDetails */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -333,7 +336,7 @@
 		813B69112B9C99EC000F3FE5 /* BookList */ = {
 			isa = PBXGroup;
 			children = (
-				813B69122B9C9A03000F3FE5 /* BookListViewModelTests.swift */,
+				813B69542B9E9D24000F3FE5 /* ViewModels */,
 			);
 			path = BookList;
 			sourceTree = "<group>";
@@ -442,8 +445,8 @@
 		813B69452B9E71B5000F3FE5 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				813B69152B9CA951000F3FE5 /* SessionSuccessMock.swift */,
-				813B69172B9CA98A000F3FE5 /* CoderMock.swift */,
+				813B69152B9CA951000F3FE5 /* BookListSessionSuccessMock.swift */,
+				813B69172B9CA98A000F3FE5 /* BookListCoderMock.swift */,
 				813B69492B9E8733000F3FE5 /* EndpointMock.swift */,
 			);
 			path = Mocks;
@@ -471,6 +474,30 @@
 				813B694F2B9E99B3000F3FE5 /* BitsoAPIURLTests.swift */,
 			);
 			path = BitsoAPI;
+			sourceTree = "<group>";
+		};
+		813B69512B9E9B18000F3FE5 /* BookDetails */ = {
+			isa = PBXGroup;
+			children = (
+				813B69552B9E9D2E000F3FE5 /* ViewModels */,
+			);
+			path = BookDetails;
+			sourceTree = "<group>";
+		};
+		813B69542B9E9D24000F3FE5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				813B69122B9C9A03000F3FE5 /* BookListViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		813B69552B9E9D2E000F3FE5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				813B69522B9E9B63000F3FE5 /* TickerDetailsViewModelTests.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -645,11 +672,12 @@
 				813B694A2B9E8733000F3FE5 /* EndpointMock.swift in Sources */,
 				813B68B92B99E14E000F3FE5 /* TradingAppTests.swift in Sources */,
 				813B69482B9E723E000F3FE5 /* EndpointGetRequestTests.swift in Sources */,
-				813B69182B9CA98A000F3FE5 /* CoderMock.swift in Sources */,
+				813B69182B9CA98A000F3FE5 /* BookListCoderMock.swift in Sources */,
 				813B694D2B9E92DD000F3FE5 /* EndpointTests.swift in Sources */,
 				813B693F2B9E1C47000F3FE5 /* BitsoLocalizerTests.swift in Sources */,
 				813B69132B9C9A03000F3FE5 /* BookListViewModelTests.swift in Sources */,
-				813B69162B9CA951000F3FE5 /* SessionSuccessMock.swift in Sources */,
+				813B69162B9CA951000F3FE5 /* BookListSessionSuccessMock.swift in Sources */,
+				813B69532B9E9B63000F3FE5 /* TickerDetailsViewModelTests.swift in Sources */,
 				813B69442B9E6F11000F3FE5 /* JSONCoderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,7 +19,7 @@ struct EndpointGetRequest<T> where T: Decodable {
     }
 
     func asyncGetrequest() async -> Result<T, APIError> {
-        guard let url = endpoint.getUrlRequest() else { return .failure(.url) }
+        guard let url = endpoint.getUrl() else { return .failure(.url) }
         
         let data: Data
         do {

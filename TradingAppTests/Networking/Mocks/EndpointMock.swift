@@ -31,7 +31,7 @@ struct EndpointErrorMock: Endpoint {
         self.queryItems = queryItems
     }
 
-    func getUrlRequest() -> URL? {
+    func getUrl() -> URL? {
         return nil
     }
 }

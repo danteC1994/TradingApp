@@ -8,15 +8,7 @@
 import Foundation
 
 extension Endpoint {
-    func getEndpointUrlComponents() -> URLComponents {
-        var components = URLComponents()
-        components.scheme = baseURL.scheme
-        components.host = baseURL.host
-        components.path = baseURL.basePath + endpointPath
-        return components
-    }
-
-    func getUrlRequest() -> URL? {
+    func getUrl() -> URL? {
         var endpointUrlComponents = getEndpointUrlComponents()
         endpointUrlComponents.queryItems = queryItems
         
@@ -26,5 +18,13 @@ extension Endpoint {
         }
         
         return url
+    }
+
+    private func getEndpointUrlComponents() -> URLComponents {
+        var components = URLComponents()
+        components.scheme = baseURL.scheme
+        components.host = baseURL.host
+        components.path = baseURL.basePath + endpointPath
+        return components
     }
 }

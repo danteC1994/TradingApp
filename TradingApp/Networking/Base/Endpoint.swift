@@ -12,5 +12,5 @@ protocol Endpoint {
     var endpointPath: String { get }
     var queryItems: [URLQueryItem] { get }
 
-    func getUrlRequest() -> URL?
+    func getUrl() -> URL?
 }

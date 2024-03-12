@@ -71,6 +71,8 @@ Add more unit tests
 
 Add snapshot tests
 
+Support landscape
+
 ## Support
 
 You can find more info aboout the API usage in [https://docs.bitso.com/bitso-api/docs/api-overview](https://docs.bitso.com/bitso-api/docs/api-overview)

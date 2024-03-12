@@ -35,6 +35,8 @@
 		813B696F2B9FD8F0000F3FE5 /* TickerServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B696E2B9FD8F0000F3FE5 /* TickerServiceMock.swift */; };
 		813B69712B9FDC2E000F3FE5 /* TickerServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69702B9FDC2E000F3FE5 /* TickerServiceProtocol.swift */; };
 		813B69732B9FDC4E000F3FE5 /* BookListServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69722B9FDC4E000F3FE5 /* BookListServiceProtocol.swift */; };
+		813B69882BA08241000F3FE5 /* BookListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69872BA08241000F3FE5 /* BookListFactory.swift */; };
+		813B698A2BA083A9000F3FE5 /* TickerDetailsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B69892BA083A9000F3FE5 /* TickerDetailsFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		813B69762B9FE34C000F3FE5 /* TradingApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TradingApp.xctestplan; sourceTree = "<group>"; };
 		813B697D2B9FE740000F3FE5 /* NetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTests.swift; sourceTree = "<group>"; };
 		813B69852B9FE7B1000F3FE5 /* NetworkingTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = NetworkingTests.xctestplan; sourceTree = "<group>"; };
+		813B69872BA08241000F3FE5 /* BookListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListFactory.swift; sourceTree = "<group>"; };
+		813B69892BA083A9000F3FE5 /* TickerDetailsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerDetailsFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				813B69332B9E0001000F3FE5 /* UIComponents */,
-				813B68E82B9A5578000F3FE5 /* Networking */,
 				813B68E72B99EFCA000F3FE5 /* Features */,
 				813B68D72B99ED8F000F3FE5 /* App */,
 				813B68DF2B99EE64000F3FE5 /* Preview Content */,
@@ -200,13 +203,6 @@
 				813B68DA2B99ED8F000F3FE5 /* BookList */,
 			);
 			path = Features;
-			sourceTree = "<group>";
-		};
-		813B68E82B9A5578000F3FE5 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Networking;
 			sourceTree = "<group>";
 		};
 		813B68FD2B9BEC2E000F3FE5 /* Service */ = {
@@ -294,6 +290,7 @@
 		813B69382B9E160E000F3FE5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				813B69862BA0821B000F3FE5 /* Factories */,
 				813B695D2B9F9A5D000F3FE5 /* Localizer */,
 				813B69582B9F8742000F3FE5 /* Throttler */,
 			);
@@ -379,6 +376,15 @@
 				813B697D2B9FE740000F3FE5 /* NetworkingTests.swift */,
 			);
 			path = NetworkingTests;
+			sourceTree = "<group>";
+		};
+		813B69862BA0821B000F3FE5 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				813B69872BA08241000F3FE5 /* BookListFactory.swift */,
+				813B69892BA083A9000F3FE5 /* TickerDetailsFactory.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -490,6 +496,7 @@
 				813B690F2B9C141B000F3FE5 /* BookListRowView.swift in Sources */,
 				813B69262B9D0076000F3FE5 /* TickerDetailsView.swift in Sources */,
 				813B69692B9FCBCE000F3FE5 /* BookListViewData.swift in Sources */,
+				813B69882BA08241000F3FE5 /* BookListFactory.swift in Sources */,
 				813B695A2B9F8755000F3FE5 /* Throttable.swift in Sources */,
 				813B68DD2B99ED8F000F3FE5 /* TradingApp.swift in Sources */,
 				813B692C2B9D00B5000F3FE5 /* TickerService.swift in Sources */,
@@ -502,6 +509,7 @@
 				813B69352B9E002D000F3FE5 /* RowView.swift in Sources */,
 				813B68E62B99EF7A000F3FE5 /* BookListViewModel.swift in Sources */,
 				813B69712B9FDC2E000F3FE5 /* TickerServiceProtocol.swift in Sources */,
+				813B698A2BA083A9000F3FE5 /* TickerDetailsFactory.swift in Sources */,
 				813B695C2B9F877A000F3FE5 /* Throttler.swift in Sources */,
 				813B69672B9FCBB8000F3FE5 /* TickerDetailsViewData.swift in Sources */,
 			);

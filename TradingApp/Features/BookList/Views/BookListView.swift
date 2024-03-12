@@ -18,26 +18,9 @@ struct BookListView: View {
             VStack {
                 switch viewModel.state {
                 case let .idle(idleData):
-                    ScrollView {
-                        LazyVStack {
-                            ForEach(idleData.bookList, id: \.id) { book in
-                                NavigationLink {
-                                    TickerDetailsView(bookName: book.bookName, viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: TickerService(queryItems: [.init(name: "book", value: book.id)]), localizer: BitsoLocalizer()))
-                                } label: {
-                                    BookListRowView(book: book)
-                                        .padding(.horizontal)
-                                }
-                            }
-                        }
-                    }
-                    .padding(.top)
-                    .navigationTitle("Bitso")
+                    idleStateView(bookList: idleData.bookList)
                 case let .error(errorData):
-                    GenericErrorView(
-                        title: errorData.errorTitle,
-                        subtitle: errorData.errorSubtitle,
-                        retryAction: { Task { await viewModel.requestBooks() } }
-                    )
+                    errorStateView(errorData: errorData)
                 case .loading:
                     ProgressView()
                 case .empty:
@@ -58,29 +41,36 @@ struct BookListView: View {
             await viewModel.requestBooks()
         }
     }
+
+    private func idleStateView(bookList: [BookListViewData]) -> some View {
+        ScrollView {
+            LazyVStack {
+                ForEach(bookList, id: \.id) { book in
+                    NavigationLink {
+                        TickerDetailsFactory.TickerDetails(
+                            viewTitle: book.bookName,
+                            bookID: book.id
+                        )
+                    } label: {
+                        BookListRowView(book: book)
+                            .padding(.horizontal)
+                    }
+                }
+            }
+        }
+        .padding(.top)
+        .navigationTitle("Bitso")
+    }
+
+    private func errorStateView(errorData: BookListViewModel.ErrorStateData) -> some View {
+        GenericErrorView(
+            title: errorData.errorTitle,
+            subtitle: errorData.errorSubtitle,
+            retryAction: { Task { await viewModel.requestBooks() } }
+        )
+    }
 }
 
 #Preview {
-    BookListView(
-        viewModel: .init(
-            state: .idle(
-                .init(
-                    bookList: .init(
-                        [
-                            .init(
-                                id: "btc_mxn",
-                                bookName: "BTC MXN",
-                                maximumPrice: "500000.00",
-                                values: "200000000.00 - 10.00000000"
-                            )
-                        ]
-                    )
-                )
-            ),
-            service: BookListService(
-                queryItems: []
-            ),
-            localizer: BitsoLocalizer(), throttler: Throttler()
-        )
-    )
+    BookListFactory.BookListWithMockData()
 }

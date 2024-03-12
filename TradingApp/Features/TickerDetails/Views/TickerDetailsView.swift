@@ -16,34 +16,9 @@ struct TickerDetailsView: View {
         VStack {
             switch viewModel.state {
             case let .idle(ticker):
-                ZStack {
-                    RoundedRectangle(cornerRadius: 25)
-                        .fill(.white)
-                        .shadow(color: .green, radius: 10)
-                    HStack(alignment: .top) {
-                        VStack(spacing: 20) {
-                            getRow(title: "Volume:", value: ticker.ticker.volume)
-                            getRow(title: "High:", value: ticker.ticker.high)
-                            getRow(title: "Price variation:", value: ticker.ticker.priceVariation)
-                            Spacer()
-                            if ticker.ticker.ask != nil || ticker.ticker.bid != nil {
-                                Divider()
-                                    .foregroundColor(.black)
-                            }
-                            getRow(title: "Ask:", value: ticker.ticker.ask)
-                            getRow(title: "Bid:", value: ticker.ticker.bid)
-                        }
-                    }
-                    .padding()
-                }
-                .padding(.horizontal)
-                .padding(.vertical, 60)
+                idleStateView(ticker: ticker.ticker)
             case let .error(errorData):
-                GenericErrorView(
-                    title: errorData.errorTitle,
-                    subtitle: errorData.errorSubtitle,
-                    retryAction: { Task { await viewModel.requestTicker() } }
-                )
+                errorStateView(errorData: errorData)
             case .loading:
                 ProgressView()
             case .empty:
@@ -58,6 +33,39 @@ struct TickerDetailsView: View {
             }
         }
     }
+    
+    private func idleStateView(ticker: TickerDetailsViewData) -> some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 25)
+                .fill(.white)
+                .shadow(color: .green, radius: 10)
+            HStack(alignment: .top) {
+                VStack(spacing: 20) {
+                    getRow(title: "Volume:", value: ticker.volume)
+                    getRow(title: "High:", value: ticker.high)
+                    getRow(title: "Price variation:", value: ticker.priceVariation)
+                    Spacer()
+                    if ticker.ask != nil || ticker.bid != nil {
+                        Divider()
+                            .foregroundColor(.black)
+                    }
+                    getRow(title: "Ask:", value: ticker.ask)
+                    getRow(title: "Bid:", value: ticker.bid)
+                }
+            }
+            .padding()
+        }
+        .padding(.horizontal)
+        .padding(.vertical, 60)
+    }
+    
+    private func errorStateView(errorData: TickerDetailsViewModel.ErrorStateData) -> some View {
+        GenericErrorView(
+            title: errorData.errorTitle,
+            subtitle: errorData.errorSubtitle,
+            retryAction: { Task { await viewModel.requestTicker() } }
+        )
+    }
 
     @ViewBuilder
     private func getRow(title: String, value: String?) -> some View {
@@ -70,6 +78,6 @@ struct TickerDetailsView: View {
 
 #Preview {
     NavigationStack {
-        TickerDetailsView(bookName: "BTC MXN", viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: TickerService(queryItems: [.init(name: "book", value: "btc_mxn")]), localizer: BitsoLocalizer()))
+        TickerDetailsFactory.TickerDetailsWithMockData()
     }
 }

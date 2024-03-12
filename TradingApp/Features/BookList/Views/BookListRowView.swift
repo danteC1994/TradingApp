@@ -20,21 +20,9 @@ struct BookListRowView: View {
                 .foregroundColor(Color.green)
             HStack {
                 VStack(spacing: 16) {
-                    Text(book.bookName)
-                        .foregroundColor(.black)
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text(book.maximumPrice)
-                        .foregroundColor(.black)
-                        .font(.body)
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text(book.values)
-                        .foregroundColor(.black)
-                        .font(.body)
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    text(title: book.bookName, font: .title)
+                    text(title: book.maximumPrice, font: .body)
+                    text(title: book.values, font: .body)
                 }
                 .padding(.leading)
             }
@@ -42,15 +30,16 @@ struct BookListRowView: View {
         }
         .cornerRadius(8)
     }
+
+    private func text(title: String, font: Font) -> some View {
+        Text(title)
+            .foregroundColor(.black)
+            .font(font)
+            .fontWeight(.bold)
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
 }
 
 #Preview {
-    BookListRowView(
-        book: .init(
-            id: "btc_mxn",
-            bookName: "BTC MXN",
-            maximumPrice: "500000.00",
-            values: "200000000.00 - 10.00000000"
-        )
-    )
+    BookListFactory.rowViewWithData()
 }

@@ -43,7 +43,7 @@ final class TickerDetailsViewModel: ObservableObject {
         switch tickerResponse {
         case let .success(tickerResponse):
             guard let ticker = tickerResponse.ticker else {
-                state = .empty
+                state = .error(.init(errorTitle: "Try again!", errorSubtitle: "Something went wrong, try reloading"))
                 return
             }
             

@@ -66,6 +66,11 @@ StatedViewModel interface:
 Implementation:
 <img width="1045" alt="Screenshot 2024-03-12 at 14 03 30" src="https://github.com/danteC1994/TradingApp/assets/116042202/ab7183be-c31a-4f31-858a-19402286202b">
 
+## Roadmap
+Add more unit tests
+
+Add snapshot tests
+
 ## Support
 
 You can find more info aboout the API usage in [https://docs.bitso.com/bitso-api/docs/api-overview](https://docs.bitso.com/bitso-api/docs/api-overview)

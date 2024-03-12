@@ -9,6 +9,8 @@ import Combine
 import Foundation
 
 struct Throttler: Throttable {
+    
+    /// Returns a publisher that repeatedly executes the provided action on the given interval.
     func throttle(
         every interval: TimeInterval,
         on runLoop: RunLoop,

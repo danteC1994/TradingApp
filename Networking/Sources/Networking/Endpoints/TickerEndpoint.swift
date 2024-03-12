@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// Ticker endpoint implementation.
+/// Find more info: https://docs.bitso.com/bitso-api/docs/ticker.
 struct TickerEndpoint: Endpoint {
     public var baseURL: BaseURL { BitsoAPIURL.prod }
     

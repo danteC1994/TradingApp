@@ -9,5 +9,6 @@ protocol StatedViewModel {
     associatedtype S: Equatable
     associatedtype E: Equatable
 
+    /// S and E represents successful and error ViewModel state data respectively.
     var state: ViewModelState<S, E> { get }
 }

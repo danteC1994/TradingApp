@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// Books  endpoint implementation.
+/// Find more info: https://docs.bitso.com/bitso-api/docs/list-order-book.
 struct BookListEndpoint: Endpoint {
     public var baseURL: BaseURL { BitsoAPIURL.prod }
     

@@ -24,6 +24,7 @@ struct EndpointGetRequest<T> where T: Decodable {
         session = URLSession(configuration: .default)
     }
 
+    /// Generic requester for endpoints with HTTP GET Restful method.
     func asyncGetrequest() async -> Result<T, APIError> {
         guard let url = endpoint.getUrl() else { return .failure(.url) }
         

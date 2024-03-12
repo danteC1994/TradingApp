@@ -62,7 +62,7 @@ struct BookListView: View {
         .navigationTitle("Bitso")
     }
 
-    private func errorStateView(errorData: BookListViewModel.ErrorStateData) -> some View {
+    private func errorStateView(errorData: ErrorStateData) -> some View {
         GenericErrorView(
             title: errorData.errorTitle,
             subtitle: errorData.errorSubtitle,

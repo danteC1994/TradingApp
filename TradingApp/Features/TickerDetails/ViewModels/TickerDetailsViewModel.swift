@@ -8,29 +8,13 @@
 import Networking
 import Foundation
 
-final class TickerDetailsViewModel: ObservableObject {
-    enum State: Equatable {
-        case idle(_ stateData: IdleStateData)
-        case error(_ stateData: ErrorStateData)
-        case loading
-        case empty
-    }
-
-    struct IdleStateData: Equatable {
-        let ticker: TickerDetailsViewData
-    }
-
-    struct ErrorStateData: Equatable {
-        let errorTitle: String
-        let errorSubtitle: String
-    }
+final class TickerDetailsViewModel: ObservableObject, StatedViewModel {
+    @Published private(set) var state: ViewModelState<TickerIdleStateData, ErrorStateData>
 
     private let service: TickerServiceProtocol
     private let localizer: Localizer
 
-    @Published private(set) var state: State
-
-    init(state: State, service: TickerServiceProtocol, localizer: Localizer) {
+    init(state: ViewModelState<TickerIdleStateData, ErrorStateData>, service: TickerServiceProtocol, localizer: Localizer) {
         self.state = state
         self.service = service
         self.localizer = localizer

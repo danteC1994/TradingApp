@@ -59,7 +59,7 @@ struct TickerDetailsView: View {
         .padding(.vertical, 60)
     }
     
-    private func errorStateView(errorData: TickerDetailsViewModel.ErrorStateData) -> some View {
+    private func errorStateView(errorData: ErrorStateData) -> some View {
         GenericErrorView(
             title: errorData.errorTitle,
             subtitle: errorData.errorSubtitle,

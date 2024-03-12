@@ -9,32 +9,15 @@ import Networking
 import Combine
 import Foundation
 
-final class BookListViewModel: ObservableObject {
-    enum State: Equatable {
-        case idle(_ stateData: IdleStateData)
-        case error(_ stateData: ErrorStateData)
-        case loading
-        case empty
-    }
-
-    struct IdleStateData: Equatable {
-        let bookList: [BookListViewData]
-    }
-
-    struct ErrorStateData: Equatable {
-        let errorTitle: String
-        let errorSubtitle: String
-    }
+final class BookListViewModel: ObservableObject, StatedViewModel {
+    @Published private(set) var state: ViewModelState<BookListIdleStateData, ErrorStateData>
 
     private(set) var throttlerCancellable: AnyCancellable?
-
     private let service: BookListServiceProtocol
     private let localizer: Localizer
     private let throttler: Throttable
 
-    @Published private(set) var state: State
-
-    init(state: State, service: BookListServiceProtocol, localizer: Localizer, throttler: Throttable) {
+    init(state: ViewModelState<BookListIdleStateData, ErrorStateData>, service: BookListServiceProtocol, localizer: Localizer, throttler: Throttable) {
         self.state = state
         self.service = service
         self.localizer = localizer

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct EndpointGetRequest<T>: EndpointGetRequestable where T: Decodable {
+public struct EndpointGetRequest<T> where T: Decodable {
     public let decoder: Decoder
     public let endpoint: Endpoint
     public let session: Session

@@ -5,6 +5,7 @@
 //  Created by dante canizo on 07/03/2024.
 //
 
+import Networking
 import SwiftUI
 
 @main
@@ -44,11 +45,9 @@ struct TradingApp: App {
                             )
                         )
                     ),
-                    service: .init(
+                    service: BookListService(
                         getBooksRequestable: .init(
-                            coder: JsonCoder(),
-                            endpoint: BookListEndpoint(queryItems: []),
-                            session: URLSession(configuration: .default)
+                            endpoint: BookListEndpoint(queryItems: [])
                         )
                     ),
                     localizer: BitsoLocalizer(),

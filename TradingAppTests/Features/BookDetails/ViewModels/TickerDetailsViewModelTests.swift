@@ -6,6 +6,7 @@
 //
 
 @testable import TradingApp
+import Networking
 import XCTest
 
 final class TickerDetailsViewModelTests: XCTestCase {
@@ -13,12 +14,7 @@ final class TickerDetailsViewModelTests: XCTestCase {
     var endpointRequester: EndpointGetRequest<TickerResponse>!
 
     override func setUp() {
-        endpointRequester = EndpointGetRequest(
-            coder: TickerDetailsCoderMock(),
-            endpoint: EndpointMock(),
-            session: TickerDetailsSessionSuccessMock()
-        )
-        let service = TickerService(getTickerRequestable: endpointRequester)
+        let service = TickerServiceSuccessMock()
         sut = TickerDetailsViewModel(state: .loading, service: service, localizer: BitsoLocalizer())
     }
 
@@ -46,12 +42,7 @@ final class TickerDetailsViewModelTests: XCTestCase {
     }
 
     func testRequestTicker_withURLErrorResponse() async {
-        endpointRequester = EndpointGetRequest(
-            coder: TickerDetailsCoderMock(),
-            endpoint: EndpointErrorMock(),
-            session: TickerDetailsSessionSuccessMock()
-        )
-        let service = TickerService(getTickerRequestable: endpointRequester)
+        let service = TickerServiceURLErrorMock()
         sut = TickerDetailsViewModel(state: .loading, service: service, localizer: BitsoLocalizer())
         await sut.requestTicker()
         XCTAssertEqual(
@@ -66,12 +57,7 @@ final class TickerDetailsViewModelTests: XCTestCase {
     }
 
     func testRequestTicker_withNetworkErrorResponse() async {
-        endpointRequester = EndpointGetRequest(
-            coder: TickerDetailsCoderMock(),
-            endpoint: EndpointMock(),
-            session: SessionErrorMock()
-        )
-        let service = TickerService(getTickerRequestable: endpointRequester)
+        let service = TickerServiceNetworkErrorMock()
         sut = TickerDetailsViewModel(state: .loading, service: service, localizer: BitsoLocalizer())
         await sut.requestTicker()
         XCTAssertEqual(
@@ -86,12 +72,7 @@ final class TickerDetailsViewModelTests: XCTestCase {
     }
 
     func testRequestTicker_withDecodingErrorResponse() async {
-        endpointRequester = EndpointGetRequest(
-            coder: CoderErrorMock(),
-            endpoint: EndpointMock(),
-            session: TickerDetailsSessionSuccessMock()
-        )
-        let service = TickerService(getTickerRequestable: endpointRequester)
+        let service = TickerServiceDecodingErrorMock()
         sut = TickerDetailsViewModel(state: .loading, service: service, localizer: BitsoLocalizer())
         await sut.requestTicker()
         XCTAssertEqual(

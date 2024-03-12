@@ -21,7 +21,7 @@ struct BookListView: View {
                         LazyVStack {
                             ForEach(idleData.bookList, id: \.id) { book in
                                 NavigationLink {
-                                    TickerDetailsView(bookName: book.bookName, viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: .init(getTickerRequestable: .init(coder: JsonCoder(), endpoint: TickerEndpoint(queryItems: [.init(name: "book", value: book.id)]), session: URLSession(configuration: .default))), localizer: BitsoLocalizer()))
+                                    TickerDetailsView(bookName: book.bookName, viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: TickerService(getTickerRequestable: .init(endpoint: TickerEndpoint(queryItems: [.init(name: "book", value: book.id)]))), localizer: BitsoLocalizer()))
                                 } label: {
                                     BookListRowView(book: book)
                                         .padding(.horizontal)
@@ -76,11 +76,9 @@ struct BookListView: View {
                     )
                 )
             ),
-            service: .init(
+            service: BookListService(
                 getBooksRequestable: .init(
-                    coder: JsonCoder(),
-                    endpoint: BookListEndpoint(queryItems: []),
-                    session: URLSession(configuration: .default)
+                    endpoint: BookListEndpoint(queryItems: [])
                 )
             ),
             localizer: BitsoLocalizer(), throttler: Throttler()

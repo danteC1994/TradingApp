@@ -5,8 +5,9 @@
 //  Created by dante canizo on 07/03/2024.
 //
 
-import Foundation
+import Networking
 import Combine
+import Foundation
 
 final class BookListViewModel: ObservableObject {
     enum State: Equatable {
@@ -27,13 +28,13 @@ final class BookListViewModel: ObservableObject {
 
     private(set) var throttlerCancellable: AnyCancellable?
 
-    private let service: BookListService
+    private let service: BookListServiceProtocol
     private let localizer: Localizer
     private let throttler: Throttable
 
     @Published private(set) var state: State
 
-    init(state: State, service: BookListService, localizer: Localizer, throttler: Throttable) {
+    init(state: State, service: BookListServiceProtocol, localizer: Localizer, throttler: Throttable) {
         self.state = state
         self.service = service
         self.localizer = localizer
@@ -43,7 +44,7 @@ final class BookListViewModel: ObservableObject {
     @MainActor
     func requestBooks(showLoading: Bool = true) async {
         if showLoading { state = .loading }
-        let bookResponse = await service.getBooksRequestable.asyncGetrequest()
+        let bookResponse = await service.requestBooks()
         switch bookResponse {
         case let .success(bookList):
             handleBookListSuccessResult(bookList: bookList)

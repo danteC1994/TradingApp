@@ -1,20 +1,20 @@
 //
-//  BookListEndpoint.swift
+//  BookDetailsEndpoint.swift
 //  TradingApp
 //
-//  Created by dante canizo on 08/03/2024.
+//  Created by dante canizo on 09/03/2024.
 //
 
 import Networking
 import Foundation
 
-struct BookListEndpoint: Endpoint {
+struct TickerEndpoint: Endpoint {
     var baseURL: BaseURL { BitsoAPIURL.prod }
     
-    var endpointPath: String { "/available_books" }
+    var endpointPath: String { "/ticker" }
     
     var queryItems: [URLQueryItem]
-
+    
     init(queryItems: [URLQueryItem] = []) {
         self.queryItems = queryItems
     }

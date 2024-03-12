@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol Endpoint {
+protocol Endpoint {
     var baseURL: BaseURL { get }
     var endpointPath: String { get }
     var queryItems: [URLQueryItem] { get }

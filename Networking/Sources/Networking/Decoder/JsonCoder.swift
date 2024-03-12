@@ -8,7 +8,7 @@
 import Foundation
 
 /// This struct is meant to implement coding data behaviors, such as encoding and decoding.
-public struct JsonCoder: Decoder {
+struct JsonCoder: Decoder {
     private var decoder: JSONDecoder
 
     public init(decoder: JSONDecoder = JSONDecoder()) {

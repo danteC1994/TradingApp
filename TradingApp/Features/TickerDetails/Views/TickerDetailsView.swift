@@ -5,6 +5,7 @@
 //  Created by dante canizo on 09/03/2024.
 //
 
+import Networking
 import SwiftUI
 
 struct TickerDetailsView: View {
@@ -69,6 +70,6 @@ struct TickerDetailsView: View {
 
 #Preview {
     NavigationStack {
-        TickerDetailsView(bookName: "BTC MXN", viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: TickerService(getTickerRequestable: .init(endpoint: TickerEndpoint(queryItems: [.init(name: "book", value: "btc_mxn")]))), localizer: BitsoLocalizer()))
+        TickerDetailsView(bookName: "BTC MXN", viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: TickerService(queryItems: [.init(name: "book", value: "btc_mxn")]), localizer: BitsoLocalizer()))
     }
 }

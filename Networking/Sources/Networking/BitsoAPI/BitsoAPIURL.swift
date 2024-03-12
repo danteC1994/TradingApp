@@ -5,7 +5,7 @@
 //  Created by dante canizo on 07/03/2024.
 //
 
-public enum BitsoAPIURL: BaseURL {
+enum BitsoAPIURL: BaseURL {
     case sandbox
     case prod
     

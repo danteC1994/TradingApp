@@ -9,13 +9,9 @@ import Networking
 import Foundation
 
 struct TickerService: TickerServiceProtocol {
-    let getTickerRequestable: EndpointGetRequest<TickerResponse>
-
-    init(getTickerRequestable: EndpointGetRequest<TickerResponse>) {
-        self.getTickerRequestable = getTickerRequestable
-    }
+    let queryItems: [URLQueryItem]
 
     func requestTicker() async -> Result<TickerResponse, APIError> {
-        return await getTickerRequestable.asyncGetrequest()
+        return await Networking.TickerService.requestTicker(queryItems: queryItems)
     }
 }

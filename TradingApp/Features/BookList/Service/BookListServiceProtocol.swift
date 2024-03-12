@@ -9,5 +9,7 @@ import Foundation
 import Networking
 
 protocol BookListServiceProtocol {
+    var queryItems: [URLQueryItem] { get }
+    
     func requestBooks() async -> Result<BookList, APIError>
 }

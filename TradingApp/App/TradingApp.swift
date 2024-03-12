@@ -46,9 +46,7 @@ struct TradingApp: App {
                         )
                     ),
                     service: BookListService(
-                        getBooksRequestable: .init(
-                            endpoint: BookListEndpoint(queryItems: [])
-                        )
+                        queryItems: []
                     ),
                     localizer: BitsoLocalizer(),
                     throttler: Throttler()

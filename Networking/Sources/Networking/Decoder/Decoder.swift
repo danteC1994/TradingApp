@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol Decoder {
+protocol Decoder {
     func decode<T: Decodable>(data: Data, dataType: T.Type) -> T?
 }

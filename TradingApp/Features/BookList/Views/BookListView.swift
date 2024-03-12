@@ -5,6 +5,7 @@
 //  Created by dante canizo on 07/03/2024.
 //
 
+import Networking
 import SwiftUI
 import Combine
 
@@ -21,7 +22,7 @@ struct BookListView: View {
                         LazyVStack {
                             ForEach(idleData.bookList, id: \.id) { book in
                                 NavigationLink {
-                                    TickerDetailsView(bookName: book.bookName, viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: TickerService(getTickerRequestable: .init(endpoint: TickerEndpoint(queryItems: [.init(name: "book", value: book.id)]))), localizer: BitsoLocalizer()))
+                                    TickerDetailsView(bookName: book.bookName, viewModel: .init(state: .idle(.init(ticker: .init(volume: "", high: "", priceVariation: "", ask: "", bid: ""))), service: TickerService(queryItems: [.init(name: "book", value: book.id)]), localizer: BitsoLocalizer()))
                                 } label: {
                                     BookListRowView(book: book)
                                         .padding(.horizontal)
@@ -77,9 +78,7 @@ struct BookListView: View {
                 )
             ),
             service: BookListService(
-                getBooksRequestable: .init(
-                    endpoint: BookListEndpoint(queryItems: [])
-                )
+                queryItems: []
             ),
             localizer: BitsoLocalizer(), throttler: Throttler()
         )

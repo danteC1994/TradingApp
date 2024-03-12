@@ -5,7 +5,7 @@
 //  Created by dante canizo on 08/03/2024.
 //
 
-public protocol BaseURL {
+protocol BaseURL {
     var scheme: String { get }
     var host: String { get }
     var basePath: String { get }

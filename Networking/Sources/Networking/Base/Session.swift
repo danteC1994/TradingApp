@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol Session {
+protocol Session {
     func data(from url: URL) async throws -> (Data, URLResponse)
 }

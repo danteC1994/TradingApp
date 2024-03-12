@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension Endpoint {
+extension Endpoint {
     func getUrl() -> URL? {
         var endpointUrlComponents = getEndpointUrlComponents()
         endpointUrlComponents.queryItems = queryItems

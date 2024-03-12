@@ -5,17 +5,16 @@
 //  Created by dante canizo on 08/03/2024.
 //
 
-import Networking
 import Foundation
 
 struct BookListEndpoint: Endpoint {
-    var baseURL: BaseURL { BitsoAPIURL.prod }
+    public var baseURL: BaseURL { BitsoAPIURL.prod }
     
-    var endpointPath: String { "/available_books" }
+    public var endpointPath: String { "/available_books" }
     
-    var queryItems: [URLQueryItem]
+    public var queryItems: [URLQueryItem]
 
-    init(queryItems: [URLQueryItem] = []) {
+    public init(queryItems: [URLQueryItem] = []) {
         self.queryItems = queryItems
     }
 }

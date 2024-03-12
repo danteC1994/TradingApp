@@ -9,5 +9,7 @@ import Foundation
 import Networking
 
 protocol TickerServiceProtocol {
+    var queryItems: [URLQueryItem] { get }
+    
     func requestTicker() async -> Result<TickerResponse, APIError>
 }

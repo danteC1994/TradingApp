@@ -7,10 +7,10 @@
 
 import Foundation
 
-public struct EndpointGetRequest<T> where T: Decodable {
-    public let decoder: Decoder
-    public let endpoint: Endpoint
-    public let session: Session
+struct EndpointGetRequest<T> where T: Decodable {
+    let decoder: Decoder
+    let endpoint: Endpoint
+    let session: Session
 
     init(coder: Decoder, endpoint: Endpoint, session: Session) {
         self.decoder = coder
@@ -18,13 +18,13 @@ public struct EndpointGetRequest<T> where T: Decodable {
         self.session = session
     }
 
-    public init(endpoint: Endpoint) {
+    init(endpoint: Endpoint) {
         decoder = JsonCoder()
         self.endpoint = endpoint
         session = URLSession(configuration: .default)
     }
 
-    public func asyncGetrequest() async -> Result<T, APIError> {
+    func asyncGetrequest() async -> Result<T, APIError> {
         guard let url = endpoint.getUrl() else { return .failure(.url) }
         
         let data: Data

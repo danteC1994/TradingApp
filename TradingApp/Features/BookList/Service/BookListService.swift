@@ -9,13 +9,9 @@ import Networking
 import Foundation
 
 struct BookListService: BookListServiceProtocol {
-    let getBooksRequestable: EndpointGetRequest<BookList>
-
-    init(getBooksRequestable: EndpointGetRequest<BookList>) {
-        self.getBooksRequestable = getBooksRequestable
-    }
+    let queryItems: [URLQueryItem]
 
     func requestBooks() async -> Result<BookList, APIError> {
-        return await getBooksRequestable.asyncGetrequest()
+        return await Networking.BookListService.requestBooks(queryItems: queryItems)
     }
 }

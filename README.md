@@ -1,4 +1,3 @@
-<img width="412" alt="Screenshot 2024-03-12 at 14 02 21" src="https://github.com/danteC1994/TradingApp/assets/116042202/0e0da7ff-3e07-4a2e-b2ee-9ab17c3477c5"># TradingApp
 ## Description
 This is a simple app intended to show digital and Fiat Currency Trading informations.
 This app will show you in a basic way the available exchange order books in the home View and data from a specified book in detailed view.

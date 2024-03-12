@@ -1,3 +1,4 @@
+# Trading App
 ## Description
 This is a simple app intended to show digital and Fiat Currency Trading informations.
 This app will show you in a basic way the available exchange order books in the home View and data from a specified book in detailed view.

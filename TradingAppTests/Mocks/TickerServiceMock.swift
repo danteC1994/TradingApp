@@ -10,6 +10,8 @@ import Networking
 import Foundation
 
 struct TickerServiceSuccessMock: TickerServiceProtocol {
+    var queryItems: [URLQueryItem] = []
+    
     func requestTicker() async -> Result<TickerResponse, APIError> {
         .success(
             .init(
@@ -27,18 +29,24 @@ struct TickerServiceSuccessMock: TickerServiceProtocol {
 }
 
 struct TickerServiceURLErrorMock: TickerServiceProtocol {
+    var queryItems: [URLQueryItem] = []
+    
     func requestTicker() async -> Result<TickerResponse, APIError> {
         .failure(.url)
     }
 }
 
 struct TickerServiceNetworkErrorMock: TickerServiceProtocol {
+    var queryItems: [URLQueryItem] = []
+    
     func requestTicker() async -> Result<TickerResponse, APIError> {
         .failure(.network)
     }
 }
 
 struct TickerServiceDecodingErrorMock: TickerServiceProtocol {
+    var queryItems: [URLQueryItem] = []
+    
     func requestTicker() async -> Result<TickerResponse, APIError> {
         .failure(.decoding)
     }

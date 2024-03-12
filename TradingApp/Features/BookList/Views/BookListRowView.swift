@@ -41,5 +41,10 @@ struct BookListRowView: View {
 }
 
 #Preview {
-    BookListFactory.rowViewWithData()
+    ScrollView {
+        LazyVStack {
+            BookListFactory.rowViewWithData()
+                .padding()
+        }
+    }
 }

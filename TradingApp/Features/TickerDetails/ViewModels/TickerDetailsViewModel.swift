@@ -42,21 +42,9 @@ final class TickerDetailsViewModel: ObservableObject {
         let tickerResponse = await service.requestTicker()
         switch tickerResponse {
         case let .success(tickerResponse):
-            guard let ticker = tickerResponse.ticker else {
-                state = .error(.init(errorTitle: "Try again!", errorSubtitle: "Something went wrong, try reloading"))
-                return
-            }
-            
-            state = .idle(.init(ticker: mapToViewData(ticker: ticker)))
+            handleTickerSuccessResponse(tickerResponse: tickerResponse)
         case let .failure(error):
-            switch error {
-            case .url:
-                state = .error(.init(errorTitle: "Something went wrong", errorSubtitle: "We are having technical problems"))
-            case .network:
-                state = .error(.init(errorTitle: "Try again!", errorSubtitle: "Something went wrong, try reloading"))
-            case .decoding:
-                state = .error(.init(errorTitle: "Something went wrong", errorSubtitle: "We are having technical problems"))
-            }
+            handleTickerErrorResponse(error: error)
         }
     }
 }
@@ -70,6 +58,26 @@ extension TickerDetailsViewModel {
             ask: ticker.ask.localizedDecimal(localizer: localizer),
             bid: ticker.bid.localizedDecimal(localizer: localizer)
         )
+    }
+
+    private func handleTickerSuccessResponse(tickerResponse: TickerResponse) {
+        guard let ticker = tickerResponse.ticker else {
+            state = .error(.init(errorTitle: "Try again!", errorSubtitle: "Something went wrong, try reloading"))
+            return
+        }
+        
+        state = .idle(.init(ticker: mapToViewData(ticker: ticker)))
+    }
+
+    private func handleTickerErrorResponse(error: APIError) {
+        switch error {
+        case .url:
+            state = .error(.init(errorTitle: "Something went wrong", errorSubtitle: "We are having technical problems"))
+        case .network:
+            state = .error(.init(errorTitle: "Try again!", errorSubtitle: "Something went wrong, try reloading"))
+        case .decoding:
+            state = .error(.init(errorTitle: "Something went wrong", errorSubtitle: "We are having technical problems"))
+        }
     }
 }
 

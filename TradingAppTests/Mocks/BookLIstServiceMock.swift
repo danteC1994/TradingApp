@@ -10,6 +10,8 @@ import Networking
 import Foundation
 
 struct BookListServiceSuccessMock: BookListServiceProtocol {
+    var queryItems: [URLQueryItem] = []
+    
     func requestBooks() async -> Result<BookList, APIError> {
         .success(
             .init(
@@ -27,24 +29,32 @@ struct BookListServiceSuccessMock: BookListServiceProtocol {
 }
 
 struct BookListServiceURLErrorMock: BookListServiceProtocol {
+    var queryItems: [URLQueryItem] = []
+    
     func requestBooks() async -> Result<BookList, APIError> {
         .failure(.url)
     }
 }
 
 struct BookListServiceNetworkErrorMock: BookListServiceProtocol {
+    var queryItems: [URLQueryItem] = []
+    
     func requestBooks() async -> Result<BookList, APIError> {
         .failure(.network)
     }
 }
 
 struct BookListServiceDecodingErrorMock: BookListServiceProtocol {
+    var queryItems: [URLQueryItem] = []
+    
     func requestBooks() async -> Result<BookList, APIError> {
         .failure(.decoding)
     }
 }
 
 class BookListServiceSuccesAndErrorWhenRetriessMock: BookListServiceProtocol {
+    var queryItems: [URLQueryItem] = []
+    
     private var retried = false
     func requestBooks() async -> Result<BookList, APIError> {
         defer {

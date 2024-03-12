@@ -7,20 +7,19 @@
 
 @testable import TradingApp
 import XCTest
-import Networking
+import struct Networking.Book
+import struct Networking.BookList
 
 final class BookListViewModelTests: XCTestCase {
     var sut: BookListViewModel!
-    var endpointRequester: EndpointGetRequest<BookList>!
 
     override func setUp() {
-        let service = BookListServiceSuccessMock()
+        let service = BookListServiceSuccessMock(queryItems: [])
         sut = BookListViewModel(state: .loading, service: service, localizer: BitsoLocalizer(), throttler: ThrottlerMock())
     }
 
     override func tearDown() {
         sut = nil
-        endpointRequester = nil
     }
 
     func testRequestBooks_withSuccessResponse() async {
@@ -138,10 +137,17 @@ final class BookListViewModelTests: XCTestCase {
 // Helpers
 extension BookListViewModelTests {
     private func getBookListModel() -> BookList {
-        let data = """
-                {"payload":[{"default_chart":"tradingview","minimum_price":"20000","maximum_price":"7000000","book":"btc_mxn","minimum_value":"10.00","maximum_amount":"600","maximum_value":"200000000","minimum_amount":"0.00000060000","tick_size":"10"}],"success":true
-                }
-                """.data(using: .utf8)
-        return JsonCoder().decode(data: data!, dataType: BookList.self)!
+        .init(
+            books: [
+                .init(
+                    name: "btc_mxn",
+                    maximumPrice: "7000000",
+                    maximumValue: "200000000",
+                    minimumValue: "10.00"
+                )
+            ],
+            success: true,
+            error: nil
+        )
     }
 }

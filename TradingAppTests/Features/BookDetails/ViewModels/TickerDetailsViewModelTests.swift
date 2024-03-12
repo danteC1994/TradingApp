@@ -6,12 +6,11 @@
 //
 
 @testable import TradingApp
-import Networking
 import XCTest
+import struct Networking.Ticker
 
 final class TickerDetailsViewModelTests: XCTestCase {
     var sut: TickerDetailsViewModel!
-    var endpointRequester: EndpointGetRequest<TickerResponse>!
 
     override func setUp() {
         let service = TickerServiceSuccessMock()
@@ -20,7 +19,6 @@ final class TickerDetailsViewModelTests: XCTestCase {
 
     override func tearDown() {
         sut = nil
-        endpointRequester = nil
     }
 
     func testRequestTicker_withSuccessResponse() async {

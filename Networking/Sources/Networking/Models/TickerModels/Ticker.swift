@@ -10,11 +10,11 @@ import Foundation
 public struct Ticker: Decodable, Equatable {
     public let volume: String
     public let high: String
-    public let priceVariation: String?
+    public let priceVariation: String
     public let ask: String
     public let bid: String
     
-    public init(volume: String, high: String, priceVariation: String?, ask: String, bid: String) {
+    public init(volume: String, high: String, priceVariation: String, ask: String, bid: String) {
         self.volume = volume
         self.high = high
         self.priceVariation = priceVariation
@@ -25,7 +25,7 @@ public struct Ticker: Decodable, Equatable {
     enum CodingKeys: String, CodingKey {
         case volume
         case high
-        case priceVariation = "change_24"
+        case priceVariation = "change24"
         case ask
         case bid
     }

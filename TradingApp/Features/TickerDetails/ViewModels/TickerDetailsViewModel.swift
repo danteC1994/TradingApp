@@ -54,7 +54,7 @@ extension TickerDetailsViewModel {
         .init(
             volume: ticker.volume.localizedDecimal(localizer: localizer),
             high: ticker.high.localizedDecimal(localizer: localizer),
-            priceVariation: ticker.priceVariation?.localizedDecimal(localizer: localizer),
+            priceVariation: ticker.priceVariation.localizedDecimal(localizer: localizer),
             ask: ticker.ask.localizedDecimal(localizer: localizer),
             bid: ticker.bid.localizedDecimal(localizer: localizer)
         )

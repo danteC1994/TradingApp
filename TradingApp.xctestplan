@@ -25,14 +25,6 @@
       }
     },
     {
-      "parallelizable" : true,
-      "target" : {
-        "containerPath" : "container:TradingApp.xcodeproj",
-        "identifier" : "813B68BD2B99E14E000F3FE5",
-        "name" : "TradingAppUITests"
-      }
-    },
-    {
       "target" : {
         "containerPath" : "container:Networking",
         "identifier" : "NetworkingTests",
